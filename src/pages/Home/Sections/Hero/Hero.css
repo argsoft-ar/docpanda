@@ -1,0 +1,79 @@
+/* Compensa el navbar fixed violeta */
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--navbar-height);
+  background-color: var(--color-bg);
+}
+
+.hero__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--color-surface-lavender);
+}
+
+/* ---------- Franja inferior violeta ---------- */
+
+.hero__band {
+  background-color: var(--color-primary);
+  padding: var(--space-xl) 0;
+}
+
+.hero__band-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+.hero__band-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.hero__doodle {
+  display: none;
+  color: var(--color-secondary);
+  width: clamp(2.5rem, 4vw, 4rem);
+}
+
+.hero__title {
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  max-width: 24ch;
+}
+
+.hero__subtitle {
+  color: var(--color-secondary);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+}
+
+.hero__subtitle-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: 640px) {
+  .hero__image {
+    aspect-ratio: 16 / 7;
+  }
+
+  .hero__doodle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__band {
+    padding: var(--space-lg) 0;
+  }
+}

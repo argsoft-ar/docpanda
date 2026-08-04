@@ -1,0 +1,18 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+}
+
+/* Compensa el navbar fixed: el hero ocupa el viewport completo
+   detrás del navbar; el resto de las secciones scrollean debajo. */
+.home__main {
+  flex: 1;
+  scroll-margin-top: var(--navbar-height);
+}
+
+.home__main section {
+  scroll-margin-top: var(--navbar-height);
+}

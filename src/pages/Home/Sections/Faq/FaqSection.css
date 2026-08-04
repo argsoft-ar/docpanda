@@ -1,0 +1,137 @@
+.faq-section {
+  background-color: var(--color-bg);
+  padding: var(--space-section) 0;
+}
+
+.faq-section__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ---------- Top: heading izquierda + panda derecha ---------- */
+
+.faq-section__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.faq-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  text-align: left;
+}
+
+.faq-section__title {
+  text-transform: uppercase;
+}
+
+.faq-section__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  max-width: 55ch;
+}
+
+.faq-section__panda {
+  display: none;
+  width: clamp(6rem, 9vw, 8.5rem);
+  height: auto;
+  margin-bottom: calc(-1 * var(--space-xl));
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Panel lavanda ---------- */
+
+.faq-section__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  background-color: var(--color-surface-lavender);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* ---------- Bloque de contacto ---------- */
+
+.faq-section__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.faq-section__contact-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.faq-section__contact-title {
+  color: var(--color-primary);
+  font-size: var(--font-size-h4);
+}
+
+.faq-section__contact-text {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.faq-section__channels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  list-style: none;
+}
+
+.faq-section__channel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-fast);
+}
+
+.faq-section__channel-link:hover,
+.faq-section__channel-link:focus-visible {
+  color: var(--color-primary);
+}
+
+.faq-section__channel-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .faq-section__panda {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .faq-section__panel {
+    padding: var(--space-2xl);
+  }
+
+  .faq-section__contact {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .faq-section__channels {
+    border-left: 1px solid
+      color-mix(in srgb, var(--color-primary) 25%, transparent);
+    padding-left: var(--space-2xl);
+  }
+}

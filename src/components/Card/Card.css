@@ -1,0 +1,208 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  overflow: visible;
+}
+
+/* ---------- Media ---------- */
+
+.card__media {
+  position: relative;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-lavender);
+}
+
+.card__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-dark);
+}
+
+/* ---------- Aspect modifiers ---------- */
+
+.card__media--portrait .card__image,
+.card__media--portrait .card__video {
+  aspect-ratio: 9 / 16;
+}
+
+.card__media--square .card__image,
+.card__media--square .card__video {
+  aspect-ratio: 1 / 1;
+}
+
+.card__media--landscape .card__image,
+.card__media--landscape .card__video {
+  aspect-ratio: 16 / 9;
+}
+
+.card__play-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.card__play-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.card__play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-md);
+  opacity: 0.45;
+  transition: opacity var(--transition-fast);
+}
+
+.card__play-button:hover .card__play-overlay {
+  opacity: 0.65;
+}
+
+.card__play-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-text-inverse);
+}
+
+.card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  padding: var(--space-2xs) var(--space-sm);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+}
+
+/* ---------- Body ---------- */
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-sm) 0 0;
+}
+
+.card__body .card__badge {
+  position: static;
+  align-self: flex-start;
+}
+
+.card__title {
+  color: var(--color-text);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+.card__subtitle {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+}
+
+.card__description {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+/* ---------- Variant: profile ---------- */
+
+.card--profile {
+  align-items: center;
+}
+
+.card--profile .card__media {
+  width: 100%;
+}
+
+.card--profile .card__image {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+}
+
+.card__image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.card--profile .card__body {
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+/* Badge de nombre con brush, superpuesto al borde inferior de la foto */
+.card--profile .card__title--badge {
+  position: relative;
+  z-index: 1;
+  margin-top: -0.85em;
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-inverse);
+}
+
+.card--profile .card__subtitle {
+  margin-top: var(--space-xs);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Variant: stat ---------- */
+
+.card--stat {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card--stat .card__body {
+  align-items: center;
+  padding: var(--space-md);
+}
+
+.card--stat .card__title {
+  color: var(--color-primary);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.card--stat .card__subtitle {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}

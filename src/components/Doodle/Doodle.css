@@ -1,0 +1,11 @@
+.doodle {
+  display: inline-flex;
+  width: 2.5rem;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.doodle svg {
+  width: 100%;
+  height: auto;
+}
