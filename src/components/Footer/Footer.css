@@ -29,6 +29,7 @@
 .footer__brand__image {
   width: 250px;
   height: auto;
+  align-self: center;
 }
 
 .footer__description {

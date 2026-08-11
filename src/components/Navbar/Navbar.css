@@ -79,16 +79,26 @@
   top: 100%;
   left: 0;
   right: 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: var(--space-md);
   background-color: var(--color-primary);
-  padding: var(--space-md) var(--container-padding) var(--space-lg);
   box-shadow: var(--shadow-lg);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.35s ease,
+    padding 0.35s ease;
 }
 
 .navbar__nav--open {
-  display: flex;
+  max-height: 600px;
+  opacity: 1;
+  padding: var(--space-md) var(--container-padding) var(--space-lg);
 }
 
 .navbar__list {
@@ -150,6 +160,10 @@
     padding: 0;
     box-shadow: none;
     background: none;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+    transition: none;
   }
 
   .navbar__list {
