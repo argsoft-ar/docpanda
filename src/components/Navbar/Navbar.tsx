@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { NavLink } from "../../data";
+import logoImage from "../../../public/Logos panda/logo_white.png";
 import "./Navbar.css";
 
 export interface NavbarProps {
   logoText: string;
-  logoImage?: string;
   links: NavLink[];
   ctaLabel?: string;
   ctaHref?: string;
 }
 
-export const Navbar = ({
-  logoText,
-  logoImage,
-  links,
-  ctaLabel,
-  ctaHref,
-}: NavbarProps) => {
+export const Navbar = ({ links, ctaLabel, ctaHref }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -37,7 +31,6 @@ export const Navbar = ({
           {logoImage && (
             <img className="navbar__logo-image" src={logoImage} alt="" />
           )}
-          <span className="navbar__logo-text">{logoText}</span>
         </a>
 
         <button

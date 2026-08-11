@@ -40,9 +40,9 @@
 
 .faq-section__panda {
   display: none;
-  width: clamp(6rem, 9vw, 8.5rem);
+  width: clamp(22rem, 9vw, 22rem);
   height: auto;
-  margin-bottom: calc(-1 * var(--space-xl));
+  margin-bottom: calc(-1.3 * var(--space-xl));
   position: relative;
   z-index: 1;
 }

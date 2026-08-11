@@ -41,6 +41,20 @@
   height: auto;
 }
 
+/* ---------- Contenedor del panda ---------- */
+.about-us__panda-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-lg);
+  background-color: var(--color-surface-lavender);
+  border-radius: 100%;
+  width: clamp(10rem, 20vw, 18rem);
+  height: clamp(10rem, 20vw, 18rem);
+  background-image: url("../../../../../public/Panda/panda_about.png");
+  background-size: cover;
+}
+
 /* ---------- Equipo ---------- */
 
 .about-us__team {

@@ -56,9 +56,8 @@
 }
 
 .contact__panda {
-  width: clamp(6rem, 10vw, 9rem);
+  width: clamp(22rem, 10vw, 22rem);
   height: auto;
-  margin-bottom: calc(-1 * var(--space-md));
   position: relative;
   z-index: 1;
 }

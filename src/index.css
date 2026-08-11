@@ -198,47 +198,20 @@ ol {
    Brand utilities
    ============================================ */
 
-/* Trazo de pincel de fondo completo (texto blanco): badges, números */
+/* Full-brush badge: shared visual properties used via inline SVG per component */
 .brush-green,
 .brush-purple {
   display: inline-block;
   padding: 0.08em 0.5em;
   color: var(--color-text-inverse);
-  border-radius: 1em 0.55em 0.85em 0.45em / 0.65em 0.95em 0.5em 0.85em;
   transform: rotate(-1.5deg);
 }
 
-.brush-green {
-  background-color: var(--color-secondary);
-}
-
-.brush-purple {
-  background-color: var(--color-primary);
-}
-
-/* Trazo de pincel en la mitad inferior (conserva el color del texto) */
+/* Brush-under: shared layout used via inline SVG per component */
 .brush-under-green,
 .brush-under-purple {
-  padding: 0 0.12em;
-  background-repeat: no-repeat;
-  background-size: 100% 0.42em;
-  background-position: 0 88%;
-}
-
-.brush-under-green {
-  background-image: linear-gradient(
-    97deg,
-    color-mix(in srgb, var(--color-secondary) 55%, transparent),
-    color-mix(in srgb, var(--color-secondary) 80%, transparent)
-  );
-}
-
-.brush-under-purple {
-  background-image: linear-gradient(
-    97deg,
-    color-mix(in srgb, var(--color-primary) 45%, transparent),
-    color-mix(in srgb, var(--color-primary) 70%, transparent)
-  );
+  position: relative;
+  display: inline-block;
 }
 
 /* Subrayado tipo trazo de lápiz fino debajo de headings */

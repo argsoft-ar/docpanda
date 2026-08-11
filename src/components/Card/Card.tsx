@@ -40,12 +40,6 @@ export const Card = ({
     .filter(Boolean)
     .join(" ");
 
-  const profileBadgeClassName = [
-    "card__title",
-    "card__title--badge",
-    badgeColor === "secondary" ? "brush-green" : "brush-purple",
-  ].join(" ");
-
   return (
     <article className={`card card--${variant}`}>
       {hasMedia && (
@@ -96,9 +90,27 @@ export const Card = ({
           {badge && !hasMedia && <span className="card__badge">{badge}</span>}
           {title &&
             (variant === "profile" ? (
-              <h3 className={profileBadgeClassName}>{title}</h3>
+              <h3 className="card__title card__title--badge">
+                <img
+                  src={
+                    badgeColor === "secondary"
+                      ? "/Elementos graficos/brush verde.svg"
+                      : "/Elementos graficos/brush violeta.svg"
+                  }
+                  className="card__title-brush"
+                  alt=""
+                />
+                {title}
+              </h3>
             ) : variant === "stat" ? (
-              <h3 className="card__title brush-under-green">{title}</h3>
+              <h3 className="card__title card__title--stat-brush">
+                {title}
+                <img
+                  src="/Elementos graficos/brush verde.svg"
+                  className="card__title-brush-under"
+                  alt=""
+                />
+              </h3>
             ) : (
               <h3 className="card__title">{title}</h3>
             ))}

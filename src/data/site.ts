@@ -4,7 +4,7 @@ export const siteContent: SiteContent = {
   logoText: "DocPanda",
   navCtaLabel: "¡Hablemos!",
   navCtaHref: "#contact",
-  pandaImage: "/images/brand/panda-mask.png",
+  pandaImage: "/Panda/panda-mask.png",
   footerDescription:
     "Estudio de fotografía y video de producto. Contenido visual que vende.",
   socials: [

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import { Button, Doodle, Form } from "../../../../components";
-import { contactInfo, siteContent } from "../../../../data";
+import { contactInfo } from "../../../../data";
+import pandaImagen from "../../../../../public/Panda/panda_wpp.png";
+
 import "./Contact.css";
 
 const buildWhatsappHref = (number: string, message: string): string => {
@@ -53,7 +55,7 @@ export const Contact = () => {
             {pandaVisible && (
               <img
                 className="contact__panda"
-                src={siteContent.pandaImage}
+                src={pandaImagen}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"

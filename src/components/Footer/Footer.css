@@ -26,6 +26,10 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
 }
+.footer__brand__image {
+  width: 250px;
+  height: auto;
+}
 
 .footer__description {
   color: color-mix(in srgb, var(--color-text-inverse) 70%, transparent);
@@ -78,13 +82,55 @@
   color: var(--color-text-inverse);
   transition:
     background-color var(--transition-fast),
-    color var(--transition-fast);
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .footer__social-link:hover,
 .footer__social-link:focus-visible {
   background-color: var(--color-secondary);
   color: var(--color-primary-dark);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 12px color-mix(in srgb, currentColor 30%, transparent);
+}
+
+[data-social="instagram"]:hover,
+[data-social="instagram"]:focus-visible {
+  background: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+  color: #ffffff;
+}
+[data-social="youtube"]:hover,
+[data-social="youtube"]:focus-visible {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+[data-social="linkedin"]:hover,
+[data-social="linkedin"]:focus-visible {
+  background-color: #0077b5;
+  color: #ffffff;
+}
+[data-social="facebook"]:hover,
+[data-social="facebook"]:focus-visible {
+  background-color: #1877f2;
+  color: #ffffff;
+}
+[data-social="twitter"]:hover,
+[data-social="twitter"]:focus-visible {
+  background-color: #000000;
+  color: #ffffff;
+}
+[data-social="tiktok"]:hover,
+[data-social="tiktok"]:focus-visible {
+  background-color: #010101;
+  color: #ffffff;
 }
 
 .footer__social-icon {

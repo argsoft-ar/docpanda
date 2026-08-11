@@ -12,8 +12,13 @@ export const ProductPhotography = () => {
         <header className="product-photography__header">
           <h2 className="product-photography__title">
             {heading.titlePart1}{" "}
-            <span className={`${accentClass} brush-under-green`}>
+            <span className={`${accentClass} product-photography__title-word`}>
               {heading.titlePart2}
+              <img
+                src="/Elementos graficos/brush verde.svg"
+                className="product-photography__title-brush"
+                alt=""
+              />
             </span>
           </h2>
           {heading.subtitle && (

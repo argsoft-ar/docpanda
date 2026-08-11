@@ -2,12 +2,8 @@ import { useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import { icons } from "lucide-react";
 import { Button, Faq } from "../../../../components";
-import {
-  faqContactBlock,
-  faqItems,
-  sectionHeadings,
-  siteContent,
-} from "../../../../data";
+import { faqContactBlock, faqItems, sectionHeadings } from "../../../../data";
+import pandaImage from "../../../../../public/Panda/panda_faq.png";
 import "./FaqSection.css";
 
 const iconMap = icons as Record<string, LucideIcon | undefined>;
@@ -33,7 +29,7 @@ export const FaqSection = () => {
           {pandaVisible && (
             <img
               className="faq-section__panda"
-              src={siteContent.pandaImage}
+              src={pandaImage}
               alt=""
               aria-hidden="true"
               loading="lazy"

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Card } from "../../../../components";
-import { aboutContent, siteContent } from "../../../../data";
+import { aboutContent } from "../../../../data";
 import "./AboutUs.css";
 
 export const AboutUs = () => {
   const { heading } = aboutContent;
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
-  const [pandaVisible, setPandaVisible] = useState(true);
+  const [pandaVisible] = useState(true);
 
   return (
     <section className="about-us" id="about">
@@ -14,7 +14,7 @@ export const AboutUs = () => {
         <div className="about-us__text">
           <h2 className="about-us__title">
             <span className="underline-stroke">
-              {heading.titlePart1}{" "}
+              {heading.titlePart1} <br />
               <span className={accentClass}>{heading.titlePart2}</span>
             </span>
           </h2>
@@ -24,16 +24,7 @@ export const AboutUs = () => {
               {aboutContent.descriptionAccent}
             </strong>
           </p>
-          {pandaVisible && (
-            <img
-              className="about-us__panda"
-              src={siteContent.pandaImage}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              onError={() => setPandaVisible(false)}
-            />
-          )}
+          {pandaVisible && <div className="about-us__panda-container"></div>}
         </div>
 
         <div className="about-us__team">

@@ -166,14 +166,24 @@
   padding: 0;
 }
 
-/* Badge de nombre con brush, superpuesto al borde inferior de la foto */
+/* Badge de nome com brush, superposto ao borde inferior da foto */
 .card--profile .card__title--badge {
   position: relative;
+  overflow: visible;
   z-index: 1;
   margin-top: -0.85em;
   font-size: var(--font-size-h4);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-inverse);
+  padding: 0 var(--space-xl);
+}
+
+.card__title-brush {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .card--profile .card__subtitle {
@@ -195,10 +205,22 @@
 }
 
 .card--stat .card__title {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0.05em 0.25em;
   color: var(--color-primary);
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
+}
+
+.card__title-brush-under {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .card--stat .card__subtitle {

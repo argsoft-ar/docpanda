@@ -80,3 +80,17 @@
     max-width: var(--container-wide);
   }
 }
+
+.product-photography__title-word {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.product-photography__title-brush {
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}

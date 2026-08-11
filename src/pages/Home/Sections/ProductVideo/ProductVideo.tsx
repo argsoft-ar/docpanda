@@ -18,8 +18,13 @@ export const ProductVideo = () => {
         <header className="product-video__header">
           <h2 className="product-video__title">
             {heading.titlePart1}{" "}
-            <span className={`${accentClass} brush-under-purple`}>
+            <span className={`${accentClass} product-video__title-word`}>
               {heading.titlePart2}
+              <img
+                src="/Elementos graficos/brush violeta.svg"
+                className="product-video__title-brush"
+                alt=""
+              />
             </span>
           </h2>
           {heading.subtitle && (

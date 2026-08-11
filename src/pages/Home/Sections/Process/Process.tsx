@@ -33,12 +33,16 @@ export const Process = () => {
         <ol className="process__grid">
           {processSteps.map((step, index) => (
             <li className="process__step" key={step.id}>
-              <span
-                className={`process__step-number ${
-                  index % 2 === 0 ? "brush-green" : "brush-purple"
-                }`}
-                aria-hidden="true"
-              >
+              <span className="process__step-number" aria-hidden="true">
+                <img
+                  src={
+                    index % 2 === 0
+                      ? "/Elementos graficos/brush verde.svg"
+                      : "/Elementos graficos/brush violeta.svg"
+                  }
+                  className="process__step-number__brush"
+                  alt=""
+                />
                 {String(index + 1).padStart(2, "0")}.
               </span>
               <p className="process__step-description">{step.description}</p>
