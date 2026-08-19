@@ -11,7 +11,7 @@ export const contactInfo: ContactInfo = {
   whatsappTitlePart2: "por whatsapp?",
   whatsappText: "Hablamos más rápido y más fácil",
   whatsappCtaLabel: "Escribinos por Whatsapp",
-  whatsappNumber: "+1573691927",
+  whatsappNumber: "+541173691927",
   whatsappMessage: "Hola DocPanda, quiero cotizar contenido para mi marca.",
   fields: [
     {
