@@ -183,6 +183,7 @@
 }
 
 .work-with__review-author {
+  margin-top: auto;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);

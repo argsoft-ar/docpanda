@@ -44,6 +44,14 @@
   width: clamp(2.5rem, 4vw, 4rem);
 }
 
+.container__subtitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .hero__title {
   color: var(--color-text-inverse);
   font-size: var(--font-size-h2);
@@ -60,6 +68,8 @@
 
 .hero__subtitle-bold {
   font-weight: var(--font-weight-bold);
+  color: var(--color-secondary);
+  font-size: var(--font-size-lg);
 }
 
 @media (min-width: 640px) {
@@ -75,5 +85,9 @@
 @media (min-width: 1024px) {
   .hero__band {
     padding: var(--space-lg) 0;
+  }
+
+  .container__subtitle {
+    flex-direction: row;
   }
 }

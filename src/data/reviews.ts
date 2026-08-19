@@ -3,23 +3,23 @@ import type { Review } from "./types";
 export const reviews: Review[] = [
   {
     id: "review-1",
-    author: "Mariana López",
-    company: "Ibicraft",
-    text: "El equipo de DocPanda entendió perfecto la estética de nuestra marca. Las fotos elevaron nuestra tienda online y las ventas lo reflejaron desde el primer mes.",
+    author: "",
+    company: "Drechsler",
+    text: "Equipo de producción de contenido muy profesional y confiable. Tienen buen criterio creativo, alta calidad de edición y cumplen los plazos de entrega. Entienden el objetivo del trabajo solicitado y se adaptan a la necesidades. Muy buena experiencia para quienes busquen creación de contenido para redes, e-commerce, catálogos y demas.",
     rating: 5,
   },
   {
     id: "review-2",
-    author: "Julián Pereyra",
-    company: "Mooving",
-    text: "Profesionales de principio a fin. Cumplieron los plazos, la comunicación fue clara y el material de video para redes superó nuestras expectativas.",
+    author: "",
+    company: "Tupperware",
+    text: "El equipo de Doc Panda con Mariana y Vicky ha sido muy profesional, organizado y con gran calidez para trabajar. Ajustándose a los tiempos de nuestros procesos, y proporcionando soluciones para que el equipo de trabajo y servicio sea completo",
     rating: 5,
   },
   {
     id: "review-3",
-    author: "Carolina Méndez",
-    company: "Limón Deco",
-    text: "Trabajamos con ellas hace tres años y siempre encuentran ideas nuevas para mostrar nuestros productos. Son parte fundamental de nuestro contenido.",
+    author: "Delfina",
+    company: "Mooving Argentina",
+    text: "Un equipo súper comprometido, creativo, innovador y organizado. Es un placer trabajar con ellas, son muy profesionales y apasionadas por lo que hacen. Trabajo codo a codo con ellas hace más de 2 años, y el trabajo final es superador proyecto tras proyecto. Super recomendables.",
     rating: 5,
   },
 ];

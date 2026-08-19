@@ -1,10 +1,18 @@
-import { Star } from "lucide-react";
-import { photographyItems, sectionHeadings } from "../../../../data";
+import { useState } from "react";
+import { Tabs } from "../../../../components";
+import { photographyCategories, sectionHeadings } from "../../../../data";
 import "./ProductPhotography.css";
 
 export const ProductPhotography = () => {
   const heading = sectionHeadings.photography;
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
+  const [activeTabId, setActiveTabId] = useState(
+    photographyCategories[0]?.id ?? "",
+  );
+
+  const activeCategory = photographyCategories.find(
+    (category) => category.id === activeTabId,
+  );
 
   return (
     <section className="product-photography" id="photography">
@@ -26,25 +34,34 @@ export const ProductPhotography = () => {
           )}
         </header>
 
-        <ul className="product-photography__grid">
-          {photographyItems.map((item) => (
-            <li className="product-photography__item" key={item.id}>
-              <span className="product-photography__label">
-                <Star
-                  className="product-photography__star"
-                  aria-hidden="true"
-                />
-                {item.label}
-              </span>
-              <img
-                className="product-photography__image"
-                src={item.image}
-                alt={item.alt}
-                loading="lazy"
-              />
-            </li>
-          ))}
-        </ul>
+        <Tabs
+          tabs={photographyCategories.map(({ id, label }) => ({ id, label }))}
+          activeTabId={activeTabId}
+          onTabChange={setActiveTabId}
+          icon="Star"
+        />
+
+        {activeCategory && (
+          <div
+            className="product-photography__panel"
+            id={`tabpanel-${activeCategory.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${activeCategory.id}`}
+          >
+            <ul className="product-photography__grid">
+              {activeCategory.items.map((item) => (
+                <li className="product-photography__item" key={item.id}>
+                  <img
+                    className="product-photography__image"
+                    src={item.image}
+                    alt={item.alt}
+                    loading="lazy"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );

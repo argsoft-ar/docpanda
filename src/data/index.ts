@@ -2,7 +2,7 @@ export * from "./types";
 export { navLinks } from "./navigation";
 export { heroContent } from "./hero";
 export { processSteps } from "./process";
-export { photographyItems } from "./photography";
+export { photographyCategories } from "./photography";
 export { videoCategories } from "./video";
 export { brands, services, stats } from "./brands";
 export { reviews } from "./reviews";

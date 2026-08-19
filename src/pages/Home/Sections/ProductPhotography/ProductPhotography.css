@@ -39,22 +39,6 @@
   gap: var(--space-sm);
 }
 
-.product-photography__label {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  color: var(--color-text);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-semibold);
-}
-
-.product-photography__star {
-  width: 1em;
-  height: 1em;
-  color: var(--color-secondary);
-  fill: currentColor;
-}
-
 .product-photography__image {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -85,6 +69,12 @@
   position: relative;
   display: inline-block;
   isolation: isolate;
+}
+
+.product-photography__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
 .product-photography__title-brush {

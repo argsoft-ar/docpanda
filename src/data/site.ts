@@ -6,21 +6,21 @@ export const siteContent: SiteContent = {
   navCtaHref: "#contact",
   pandaImage: "/Panda/panda-mask.png",
   footerDescription:
-    "Estudio de fotografía y video de producto. Contenido visual que vende.",
+    "Estudio de fotografía y video. Contenido visual que vende.",
   socials: [
     {
       icon: "Instagram",
-      href: "https://www.instagram.com/docpanda",
+      href: "https://www.instagram.com/docpandaproducciones/?hl=es",
       label: "Instagram",
     },
     {
       icon: "Youtube",
-      href: "https://www.youtube.com/@docpanda",
+      href: "https://www.youtube.com/@docpandaproducciones",
       label: "YouTube",
     },
     {
       icon: "Linkedin",
-      href: "https://www.linkedin.com/company/docpanda",
+      href: "https://www.linkedin.com/company/doc-panda-producciones",
       label: "LinkedIn",
     },
   ],

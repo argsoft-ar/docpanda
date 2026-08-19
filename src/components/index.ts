@@ -14,3 +14,6 @@ export { Faq } from "./Faq";
 export type { FaqProps } from "./Faq";
 export { Doodle } from "./Doodle";
 export type { DoodleProps } from "./Doodle";
+export { WhatsappFab } from "./WhatsappFab";
+export type { WhatsappFabProps } from "./WhatsappFab";
+export { ScrollToTop } from "./ScrollToTop";

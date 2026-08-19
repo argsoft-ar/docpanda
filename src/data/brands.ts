@@ -27,7 +27,6 @@ export const brands: Brand[] = [
     logo: "/images/brands/tupperware.svg",
   },
   { id: "brand-genka", name: "Genka", logo: "/images/brands/genka.svg" },
-  { id: "brand-biglife", name: "BigLife", logo: "/images/brands/biglife.svg" },
   { id: "brand-metrica", name: "Métrica", logo: "/images/brands/metrica.svg" },
   { id: "brand-furlong", name: "Furlong", logo: "/images/brands/furlong.svg" },
   {
@@ -36,21 +35,35 @@ export const brands: Brand[] = [
     logo: "/images/brands/limon-deco.svg",
   },
   {
-    id: "brand-paper-design",
-    name: "Paper Design",
-    logo: "/images/brands/paper-design.svg",
+    id: "brand-Anker",
+    name: "Anker",
+    logo: "/images/brands/anker.svg",
   },
   {
-    id: "brand-viajar-collection",
-    name: "Viajar Collection",
-    logo: "/images/brands/viajar-collection.svg",
+    id: "brand-microbottles",
+    name: "Microbottles",
+    logo: "/images/brands/microbottles.svg",
   },
-  { id: "brand-chuna", name: "Chuna", logo: "/images/brands/chuna.svg" },
+  {
+    id: "brand-multipaper",
+    name: "Multipaper",
+    logo: "/images/brands/multipaper.svg",
+  },
+  {
+    id: "brand-eurostil",
+    name: "Eurostil",
+    logo: "/images/brands/eurostil.svg",
+  },
+  {
+    id: "brand-drechsler",
+    name: "Drechsler",
+    logo: "/images/brands/drechsler.svg",
+  },
 ];
 
 export const stats: Stat[] = [
   { id: "stat-products", value: "+900", label: "productos fotografiados" },
   { id: "stat-brands", value: "+80", label: "marcas" },
-  { id: "stat-years", value: "10", label: "Años de experiencia" },
+  { id: "stat-years", value: "+10", label: "años de experiencia" },
   { id: "stat-content", value: "Miles", label: "de contenidos entregados" },
 ];

@@ -35,6 +35,12 @@ export interface PhotographyItem {
   alt: string;
 }
 
+export interface PhotographyCategory {
+  id: string;
+  label: string;
+  items: PhotographyItem[];
+}
+
 export interface VideoItem {
   id: string;
   video: string;

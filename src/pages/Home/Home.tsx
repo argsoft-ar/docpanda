@@ -1,5 +1,5 @@
-import { Footer, Navbar } from "../../components";
-import { navLinks, siteContent } from "../../data";
+import { Footer, Navbar, ScrollToTop, WhatsappFab } from "../../components";
+import { contactInfo, navLinks, siteContent } from "../../data";
 import {
   AboutUs,
   Contact,
@@ -40,6 +40,11 @@ export const Home = () => {
         socials={siteContent.socials}
         copyright={siteContent.copyright}
       />
+      <WhatsappFab
+        phoneNumber={contactInfo.whatsappNumber}
+        message={contactInfo.whatsappMessage}
+      />
+      <ScrollToTop />
     </div>
   );
 };

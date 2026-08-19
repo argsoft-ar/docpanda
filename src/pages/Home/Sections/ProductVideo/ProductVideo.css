@@ -15,8 +15,10 @@
 .product-video__header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: var(--space-sm);
-  text-align: left;
+  text-align: center;
 }
 
 .product-video__subtitle {

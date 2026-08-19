@@ -54,7 +54,6 @@ export const ProductVideo = () => {
                   videoUrl={item.video}
                   image={item.thumbnail}
                   imageAlt={item.title}
-                  title={item.title}
                   aspect="portrait"
                 />
               ))}

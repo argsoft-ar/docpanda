@@ -2,13 +2,13 @@ import type { SectionHeadings } from "./types";
 
 export const sectionHeadings: SectionHeadings = {
   process: {
-    titlePart1: "ASÍ",
+    titlePart1: "ASI",
     titlePart2: "TRABAJAMOS",
     accent: "primary",
     subtitle: "Proceso simple, colaborativo y efectivo",
   },
   photography: {
-    titlePart1: "Fotografía de",
+    titlePart1: "Fotografía",
     titlePart2: "producto",
     accent: "primary",
     subtitle:
@@ -31,6 +31,6 @@ export const sectionHeadings: SectionHeadings = {
     titlePart2: "PREGUNTAS FRECUENTES",
     accent: "primary",
     subtitle:
-      "Resolvemos las dudas mas comunes para que trabajemos juntos de la mejor manera",
+      "Resolvemos las dudas más comunes para que trabajemos juntos de la mejor manera",
   },
 };

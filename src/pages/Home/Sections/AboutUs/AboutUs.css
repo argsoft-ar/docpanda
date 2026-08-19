@@ -49,10 +49,12 @@
   margin-top: var(--space-lg);
   background-color: var(--color-surface-lavender);
   border-radius: 100%;
-  width: clamp(10rem, 20vw, 18rem);
-  height: clamp(10rem, 20vw, 18rem);
+  width: 300px;
+  height: 300px;
   background-image: url("../../../../../public/Panda/panda_about.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /* ---------- Equipo ---------- */

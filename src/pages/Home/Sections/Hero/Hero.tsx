@@ -24,12 +24,10 @@ export const Hero = () => {
             <h1 className="hero__title">{heroContent.title}</h1>
             <Doodle name="sparkle" className="hero__doodle" />
           </div>
-          <p className="hero__subtitle">
-            {heroContent.subtitle}{" "}
-            <strong className="hero__subtitle-bold">
-              {heroContent.subtitleBold}
-            </strong>
-          </p>
+          <div className="container__subtitle">
+            <p className="hero__subtitle">{heroContent.subtitle}</p>
+            <p className="hero__subtitle-bold">{heroContent.subtitleBold}</p>
+          </div>
         </div>
       </div>
     </section>

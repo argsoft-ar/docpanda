@@ -3,7 +3,7 @@ import type { ContactInfo } from "./types";
 export const contactInfo: ContactInfo = {
   heading: {
     titlePart1: "Hablemos de",
-    titlePart2: "tu proximo proyecto",
+    titlePart2: "tu próximo proyecto",
     accent: "primary",
     subtitle: "Dejanos tus datos y te respondemos a la brevedad",
   },
@@ -11,7 +11,7 @@ export const contactInfo: ContactInfo = {
   whatsappTitlePart2: "por whatsapp?",
   whatsappText: "Hablamos más rápido y más fácil",
   whatsappCtaLabel: "Escribinos por Whatsapp",
-  whatsappNumber: "+5491100000000",
+  whatsappNumber: "+1573691927",
   whatsappMessage: "Hola DocPanda, quiero cotizar contenido para mi marca.",
   fields: [
     {
@@ -41,7 +41,7 @@ export const contactInfo: ContactInfo = {
     {
       id: "contact-message",
       name: "message",
-      label: "¿Que necesitas?",
+      label: "¿Qué necesitas?",
       type: "textarea",
       placeholder: "Contanos qué productos tenés y qué contenido necesitás…",
       required: true,

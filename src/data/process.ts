@@ -18,6 +18,7 @@ export const processSteps: ProcessStep[] = [
   },
   {
     id: "step-4",
-    description: "Entrega de material en el formato acordado vía descarga web",
+    description:
+      "Entrega del material en el formato acordado vía descarga web. ¡Te esperamos!",
   },
 ];
