@@ -19,7 +19,7 @@ export const aboutContent: AboutContent = {
     },
     {
       id: "team-2",
-      name: "Viky",
+      name: "Vicky",
       role: "Soy diseñadora de imagen y sonido y fotógrafa. Me interesa encontrar la belleza de lo cotidiano: observar la luz, las formas, las texturas y los paisajes que nos rodean, y transformar esas pequeñas escenas en imágenes. En Doc Panda vuelco esa sensibilidad junto a un equipo con el que comparto la curiosidad y las ganas de hacer que cada proyecto encuentre su propia forma de ser contado. ",
       photo:
         "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787258783/viky_rsqejk.webp",
