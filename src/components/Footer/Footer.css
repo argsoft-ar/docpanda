@@ -29,7 +29,7 @@
   line-height: var(--line-height-tight);
 }
 .footer__brand__image {
-  width: 250px;
+  width: 200px;
   height: auto;
   align-self: center;
 }

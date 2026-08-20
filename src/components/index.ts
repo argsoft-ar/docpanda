@@ -17,3 +17,5 @@ export type { DoodleProps } from "./Doodle";
 export { WhatsappFab } from "./WhatsappFab";
 export type { WhatsappFabProps } from "./WhatsappFab";
 export { ScrollToTop } from "./ScrollToTop";
+export { MemberBioCard } from "./MemberBioCard";
+export type { MemberBioCardProps } from "./MemberBioCard";
