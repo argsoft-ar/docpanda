@@ -20,7 +20,8 @@ export interface HeroContent {
   subtitle: string;
   /** Parte final del subtítulo, en bold. */
   subtitleBold: string;
-  backgroundImage: string;
+  videoMobile: string;
+  videoDesktop: string;
 }
 
 export interface ProcessStep {

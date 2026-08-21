@@ -1,21 +1,26 @@
-import { useState } from "react";
 import { Doodle } from "../../../../components";
 import { heroContent } from "../../../../data";
 import "./Hero.css";
 
 export const Hero = () => {
-  const [imageVisible, setImageVisible] = useState(true);
-
   return (
     <section className="hero" id="hero">
-      {imageVisible && (
-        <img
-          className="hero__image"
-          src={heroContent.backgroundImage}
-          alt=""
-          onError={() => setImageVisible(false)}
-        />
-      )}
+      <video
+        className="hero__video hero__video--mobile"
+        src={heroContent.videoMobile}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <video
+        className="hero__video hero__video--desktop"
+        src={heroContent.videoDesktop}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
 
       <div className="hero__band">
         <div className="hero__band-inner">

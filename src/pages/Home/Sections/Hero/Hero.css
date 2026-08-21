@@ -6,11 +6,19 @@
   background-color: var(--color-bg);
 }
 
-.hero__image {
+.hero__video {
   width: 100%;
-  aspect-ratio: 4 / 3;
   object-fit: cover;
   background-color: var(--color-surface-lavender);
+}
+
+.hero__video--mobile {
+  display: block;
+}
+
+.hero__video--desktop {
+  display: none;
+  aspect-ratio: 16 / 7;
 }
 
 /* ---------- Franja inferior violeta ---------- */
@@ -73,8 +81,12 @@
 }
 
 @media (min-width: 640px) {
-  .hero__image {
-    aspect-ratio: 16 / 7;
+  .hero__video--mobile {
+    display: none;
+  }
+
+  .hero__video--desktop {
+    display: block;
   }
 
   .hero__doodle {
