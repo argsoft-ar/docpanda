@@ -164,6 +164,15 @@
   text-align: center;
 }
 
+.footer__developer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) 0;
+  font-size: small;
+  color: color-mix(in srgb, var(--color-text-inverse) 60%, transparent);
+}
 /* ---------- Tablet / Desktop ---------- */
 
 @media (max-width: 768px) {

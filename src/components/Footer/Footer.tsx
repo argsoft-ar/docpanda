@@ -135,6 +135,16 @@ export const Footer = ({
 
       <div className="footer__bottom">
         <p className="footer__copyright">{copyright}</p>
+        <p className="footer__developer">
+          Desarrollado por{" "}
+          <a
+            href="https://www.argsoft.ar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Argsoft.ar
+          </a>
+        </p>
       </div>
     </footer>
   );
