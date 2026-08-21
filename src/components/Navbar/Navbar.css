@@ -33,7 +33,7 @@
 }
 
 .navbar__logo-image {
-  width: 100px;
+  width: 60px;
 }
 
 .navbar__logo-text {
@@ -174,5 +174,9 @@
 
   .navbar__link {
     padding: var(--space-2xs) 0;
+  }
+
+  .navbar__logo-image {
+    width: 70px;
   }
 }
