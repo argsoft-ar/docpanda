@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Tabs } from "../../../../components";
+import { CloudinaryVideo, VideoLightbox, Tabs } from "../../../../components";
 import { sectionHeadings, videoCategories } from "../../../../data";
 import "./ProductVideo.css";
 
@@ -7,10 +7,16 @@ export const ProductVideo = () => {
   const heading = sectionHeadings.video;
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
   const [activeTabId, setActiveTabId] = useState(videoCategories[0]?.id ?? "");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const activeCategory = videoCategories.find(
     (category) => category.id === activeTabId,
   );
+
+  const handleTabChange = (id: string) => {
+    setActiveTabId(id);
+    setLightboxIndex(null);
+  };
 
   return (
     <section className="product-video" id="video">
@@ -35,7 +41,7 @@ export const ProductVideo = () => {
         <Tabs
           tabs={videoCategories.map(({ id, label }) => ({ id, label }))}
           activeTabId={activeTabId}
-          onTabChange={setActiveTabId}
+          onTabChange={handleTabChange}
           icon="Star"
         />
 
@@ -47,18 +53,25 @@ export const ProductVideo = () => {
             aria-labelledby={`tab-${activeCategory.id}`}
           >
             <div className="product-video__grid">
-              {activeCategory.items.map((item) => (
-                <Card
+              {activeCategory.items.map((item, i) => (
+                <CloudinaryVideo
                   key={item.id}
-                  variant="media"
-                  videoUrl={item.video}
-                  image={item.thumbnail}
-                  imageAlt={item.title}
+                  publicId={item.cloudinaryId}
+                  title={item.title}
                   aspect="portrait"
+                  onClick={() => setLightboxIndex(i)}
                 />
               ))}
             </div>
           </div>
+        )}
+
+        {lightboxIndex !== null && activeCategory && (
+          <VideoLightbox
+            items={activeCategory.items}
+            initialIndex={lightboxIndex}
+            onClose={() => setLightboxIndex(null)}
+          />
         )}
       </div>
     </section>

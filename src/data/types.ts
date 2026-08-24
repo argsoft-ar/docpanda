@@ -44,8 +44,9 @@ export interface PhotographyCategory {
 
 export interface VideoItem {
   id: string;
-  video: string;
-  thumbnail: string;
+  cloudinaryId: string;
+  video?: string;
+  thumbnail?: string;
   title: string;
 }
 

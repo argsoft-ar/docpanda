@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { Tabs } from "../../../../components";
+import { useState, useEffect } from "react";
+import { Lightbox, Tabs } from "../../../../components";
 import { photographyCategories, sectionHeadings } from "../../../../data";
 import "./ProductPhotography.css";
+
+const BENTO_PAGE_SIZE = 4;
 
 export const ProductPhotography = () => {
   const heading = sectionHeadings.photography;
@@ -9,10 +11,35 @@ export const ProductPhotography = () => {
   const [activeTabId, setActiveTabId] = useState(
     photographyCategories[0]?.id ?? "",
   );
+  const [pageIndex, setPageIndex] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const activeCategory = photographyCategories.find(
-    (category) => category.id === activeTabId,
+    (c) => c.id === activeTabId,
   );
+  const totalPages = Math.ceil(
+    (activeCategory?.items.length ?? 0) / BENTO_PAGE_SIZE,
+  );
+  const currentPageItems =
+    activeCategory?.items.slice(
+      pageIndex * BENTO_PAGE_SIZE,
+      (pageIndex + 1) * BENTO_PAGE_SIZE,
+    ) ?? [];
+
+  const handleTabChange = (id: string) => {
+    setActiveTabId(id);
+    setPageIndex(0);
+    setLightboxIndex(null);
+  };
+
+  // Auto-rotate bento page every 5s when category has more than one page
+  useEffect(() => {
+    if (totalPages <= 1) return;
+    const timer = setInterval(() => {
+      setPageIndex((prev) => (prev + 1) % totalPages);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [totalPages, activeTabId]);
 
   return (
     <section className="product-photography" id="photography">
@@ -37,32 +64,48 @@ export const ProductPhotography = () => {
         <Tabs
           tabs={photographyCategories.map(({ id, label }) => ({ id, label }))}
           activeTabId={activeTabId}
-          onTabChange={setActiveTabId}
+          onTabChange={handleTabChange}
           icon="Star"
         />
 
+        {/* Gallery: 2-col on mobile, asymmetric bento on desktop */}
         {activeCategory && (
-          <div
-            className="product-photography__panel"
-            id={`tabpanel-${activeCategory.id}`}
-            role="tabpanel"
-            aria-labelledby={`tab-${activeCategory.id}`}
+          <ul
+            key={`${activeTabId}-${pageIndex}`}
+            className="product-photography__bento"
+            data-count={currentPageItems.length}
+            aria-label="Galería de fotografía de producto"
           >
-            <ul className="product-photography__grid">
-              {activeCategory.items.map((item) => (
-                <li className="product-photography__item" key={item.id}>
+            {currentPageItems.map((item, i) => (
+              <li key={item.id} className="product-photography__bento-item">
+                <button
+                  type="button"
+                  className="product-photography__bento-figure"
+                  onClick={() =>
+                    setLightboxIndex(pageIndex * BENTO_PAGE_SIZE + i)
+                  }
+                  aria-label={`Ver imagen: ${item.alt}`}
+                >
                   <img
-                    className="product-photography__image"
+                    className="product-photography__bento-image"
                     src={item.image}
                     alt={item.alt}
                     loading="lazy"
                   />
-                </li>
-              ))}
-            </ul>
-          </div>
+                </button>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
+
+      {lightboxIndex !== null && activeCategory && (
+        <Lightbox
+          items={activeCategory.items}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </section>
   );
 };
