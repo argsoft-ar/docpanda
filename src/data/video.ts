@@ -12,7 +12,7 @@ export const videoCategories: VideoCategory[] = [
       },
       {
         id: "reels-2",
-        cloudinaryId: "2025_Agenda_Tropicalia_Ediciones_de_la_montania_hsgpgk",
+        cloudinaryId: "2025_Domino_fdkqxh",
         title: "Agenda Tropicalia",
       },
       {
@@ -28,7 +28,7 @@ export const videoCategories: VideoCategory[] = [
     items: [
       {
         id: "advertising-1",
-        cloudinaryId: "Mooving_box_muniecos_horizontal_swwyqk",
+        cloudinaryId: "Mooving_owof08",
         title: "Mooving Box",
       },
       {

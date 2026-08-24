@@ -27,10 +27,16 @@
   max-width: 60ch;
 }
 
+@keyframes panel-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .product-video__panel {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+  animation: panel-fade-in 0.3s ease both;
 }
 
 .product-video__grid {

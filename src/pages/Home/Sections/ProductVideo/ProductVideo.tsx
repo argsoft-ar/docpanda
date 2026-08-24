@@ -47,6 +47,7 @@ export const ProductVideo = () => {
 
         {activeCategory && (
           <div
+            key={activeTabId}
             className="product-video__panel"
             id={`tabpanel-${activeCategory.id}`}
             role="tabpanel"
