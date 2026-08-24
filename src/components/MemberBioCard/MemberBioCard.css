@@ -83,13 +83,13 @@
 
   .member-bio-card__name {
     height: auto;
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h2);
   }
 
   .member-bio-card__bio {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
   }
 }
