@@ -1,7 +1,7 @@
 import type { SiteContent } from "./types";
 
 export const siteContent: SiteContent = {
-  logoText: "DocPanda",
+  logoText: "Doc Panda Producciones",
   navCtaLabel: "¡Hablemos!",
   navCtaHref: "#contact",
   pandaImage: "/Panda/panda-mask.png",
@@ -24,5 +24,5 @@ export const siteContent: SiteContent = {
       label: "LinkedIn",
     },
   ],
-  copyright: `© ${new Date().getFullYear()} DocPanda. Todos los derechos reservados.`,
+  copyright: `© ${new Date().getFullYear()} Doc Panda Producciones. Todos los derechos reservados.`,
 };
