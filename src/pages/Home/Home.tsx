@@ -24,9 +24,9 @@ export const Home = () => {
 
       <main className="home__main">
         <Hero />
-        <Process />
         <ProductPhotography />
         <ProductVideo />
+        <Process />
         <WorkWith />
         <AboutUs />
         <Contact />
