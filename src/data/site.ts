@@ -6,7 +6,7 @@ export const siteContent: SiteContent = {
   navCtaHref: "#contact",
   pandaImage: "/Panda/panda-mask.png",
   footerDescription:
-    "Estudio de fotografía y video. Contenido visual que vende.",
+    "Estudio de foto y video producto\nBuenos Aires, Argentina",
   socials: [
     {
       icon: "Instagram",

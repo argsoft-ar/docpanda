@@ -27,7 +27,6 @@ export const brands: Brand[] = [
     logo: "/images/brands/tupperware.svg",
   },
   { id: "brand-genka", name: "Genka", logo: "/images/brands/genka.svg" },
-  { id: "brand-metrica", name: "Métrica", logo: "/images/brands/metrica.svg" },
   { id: "brand-furlong", name: "Furlong", logo: "/images/brands/furlong.svg" },
   {
     id: "brand-limon-deco",

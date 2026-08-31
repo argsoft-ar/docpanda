@@ -27,7 +27,7 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: "faq-4",
-    question: "¿Cuántas fotos o videos recibire?",
+    question: "¿Cuántas fotos o videos voy a recibir?",
     answer:
       "Depende del paquete que elijas: lo definimos juntos en la primera reunión según la cantidad de productos y los canales donde vas a publicar el contenido.",
   },
@@ -54,14 +54,14 @@ export const faqContactBlock: FaqContactBlock = {
     {
       id: "channel-instagram",
       icon: "Instagram",
-      label: "@docpanda",
-      href: "https://www.instagram.com/docpanda",
+      label: "@DocPandaProducciones",
+      href: "https://www.instagram.com/DocPandaProducciones",
     },
     {
       id: "channel-whatsapp",
       icon: "MessageCircle",
       label: "Escribinos por Whatsapp",
-      href: "https://wa.me/5491100000000",
+      href: "https://wa.me/+5491173691927?text=Hola%20DocPanda,%20quiero%20cotizar%20contenido%20para%20mi%20marca.",
     },
   ],
 };
