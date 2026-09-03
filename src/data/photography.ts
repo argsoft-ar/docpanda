@@ -9,7 +9,7 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-ecommerce-1",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580283/Tupper_ecommerce_nopenn.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580281/Eurostil_xbfhxs.jpg",
         alt: "Tupper ecommerce",
       },
       {
@@ -30,7 +30,7 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-ecommerce-4",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580281/Eurostil_xbfhxs.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580283/Tupper_ecommerce_nopenn.jpg",
         alt: "Eurostil",
       },
       {
@@ -71,7 +71,7 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-lifestyle-1",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580293/Citric_03_Lifestyle_qjrpwx.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580290/Ibi_03_Lifestyle_hpgdpo.jpg",
         alt: "Citric Lifestyle",
       },
       {
@@ -92,7 +92,7 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-lifestyle-4",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580290/Ibi_03_Lifestyle_hpgdpo.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580293/Citric_03_Lifestyle_qjrpwx.jpg",
         alt: "Ibi Lifestyle",
       },
       {
@@ -119,14 +119,14 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-campaigns-1",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580235/Mooving_BTS_2026_22_herxij.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Mooving_BTS_2026_16_wzfgyk.jpg",
         alt: "Mooving BTS 2026",
       },
       {
         id: "photo-campaigns-2",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580235/Coleccion_Helen_5_dvyydr.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580235/Mooving_BTS_2026_22_herxij.jpg",
         alt: "Colección Helen",
       },
       {
@@ -140,14 +140,14 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-campaigns-4",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Mooving_BTS_2026_16_wzfgyk.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580235/Coleccion_Helen_5_dvyydr.jpg",
         alt: "Mooving BTS 2026",
       },
       {
         id: "photo-campaigns-5",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Ibicraft_Campa%C3%B1a_agendas_2027_3_cfqac6.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Fiori_di_Casa_041_pavppx.jpg",
         alt: "Ibicraft Campaña agendas 2027",
       },
       {
@@ -168,7 +168,7 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-campaigns-8",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Fiori_di_Casa_041_pavppx.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Ibicraft_Campa%C3%B1a_agendas_2027_3_cfqac6.jpg",
         alt: "Fiori di Casa",
       },
     ],
