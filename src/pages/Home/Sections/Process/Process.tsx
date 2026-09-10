@@ -1,13 +1,21 @@
+import { useRef } from "react";
 import { Doodle } from "../../../../components";
 import { processSteps, sectionHeadings } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import "./Process.css";
 
 export const Process = () => {
   const heading = sectionHeadings.process;
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
 
   return (
-    <section className="process" id="process">
+    <section
+      className={`process reveal${isInView ? " reveal--visible" : ""}`}
+      id="process"
+      ref={sectionRef}
+    >
       <div className="process__inner">
         <Doodle
           name="arrow-curl"

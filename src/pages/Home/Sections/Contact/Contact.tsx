@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { MessageCircle } from "lucide-react";
 import { Button, Doodle, Form } from "../../../../components";
 import type { FormStatus } from "../../../../components";
 import { contactInfo } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import pandaImagen from "../../../../../public/Panda/panda_wpp.png";
 
 import "./Contact.css";
@@ -19,6 +20,8 @@ export const Contact = () => {
   const [pandaVisible, setPandaVisible] = useState(true);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
 
   const whatsappHref = buildWhatsappHref(
     contactInfo.whatsappNumber,
@@ -63,7 +66,11 @@ export const Contact = () => {
   };
 
   return (
-    <section className="contact" id="contact">
+    <section
+      className={`contact reveal${isInView ? " reveal--visible" : ""}`}
+      id="contact"
+      ref={sectionRef}
+    >
       <div className="contact__inner">
         <header className="contact__header">
           <h2 className="contact__title">

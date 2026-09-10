@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import { icons } from "lucide-react";
 import { Button, Faq } from "../../../../components";
 import { faqContactBlock, faqItems, sectionHeadings } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import pandaImage from "../../../../../public/Panda/panda_faq.png";
 import "./FaqSection.css";
 
@@ -12,9 +13,15 @@ export const FaqSection = () => {
   const heading = sectionHeadings.faq;
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
   const [pandaVisible, setPandaVisible] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
 
   return (
-    <section className="faq-section" id="faq">
+    <section
+      className={`faq-section reveal${isInView ? " reveal--visible" : ""}`}
+      id="faq"
+      ref={sectionRef}
+    >
       <div className="faq-section__inner">
         <div className="faq-section__top">
           <header className="faq-section__header">

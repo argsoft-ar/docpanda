@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MemberBioCard, Tabs } from "../../../../components";
 import { aboutContent } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import "./AboutUs.css";
 
 export const AboutUs = () => {
@@ -10,6 +11,8 @@ export const AboutUs = () => {
     aboutContent.members[0]?.id ?? "",
   );
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
   const carouselRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -60,7 +63,11 @@ export const AboutUs = () => {
   }, []);
 
   return (
-    <section className="about-us" id="about">
+    <section
+      className={`about-us reveal${isInView ? " reveal--visible" : ""}`}
+      id="about"
+      ref={sectionRef}
+    >
       <div className="about-us__inner">
         {/* Header row: text (left) + panda (right on desktop, below on mobile) */}
         <div className="about-us__header">
