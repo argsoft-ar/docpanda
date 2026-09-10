@@ -91,6 +91,7 @@ export const VideoLightbox = ({
         controls
         autoPlay
         playsInline
+        aria-label={current.title}
         onClick={(e) => e.stopPropagation()}
       />
 

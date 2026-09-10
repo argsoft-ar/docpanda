@@ -12,6 +12,7 @@ export const Hero = () => {
         muted
         loop
         playsInline
+        aria-hidden="true"
       />
       <video
         className="hero__video hero__video--desktop"
@@ -20,6 +21,7 @@ export const Hero = () => {
         muted
         loop
         playsInline
+        aria-hidden="true"
       />
 
       <div className="hero__band">

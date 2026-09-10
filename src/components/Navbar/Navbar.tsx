@@ -11,7 +11,7 @@ export interface NavbarProps {
   ctaHref?: string;
 }
 
-export const Navbar = ({ links, ctaLabel, ctaHref }: NavbarProps) => {
+export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -29,7 +29,7 @@ export const Navbar = ({ links, ctaLabel, ctaHref }: NavbarProps) => {
       <div className="navbar__inner">
         <a className="navbar__logo" href="#" onClick={closeMenu}>
           {logoImage && (
-            <img className="navbar__logo-image" src={logoImage} alt="" />
+            <img className="navbar__logo-image" src={logoImage} alt={logoText} />
           )}
         </a>
 

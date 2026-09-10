@@ -80,6 +80,35 @@
   line-height: var(--line-height-snug);
 }
 
+.form__control:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Status banner ---------- */
+
+.form__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.form__status--success {
+  background-color: color-mix(in srgb, var(--color-success) 12%, transparent);
+  color: var(--color-success);
+  border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent);
+}
+
+.form__status--error {
+  background-color: color-mix(in srgb, var(--color-error) 12%, transparent);
+  color: var(--color-error);
+  border: 1px solid color-mix(in srgb, var(--color-error) 30%, transparent);
+}
+
 /* ---------- Submit ---------- */
 
 .form__submit {
@@ -110,6 +139,25 @@
 .form__submit:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+.form__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form__spinner {
+  margin-right: var(--space-2xs);
+  animation: form-spin 1s linear infinite;
+}
+
+@keyframes form-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (min-width: 640px) {

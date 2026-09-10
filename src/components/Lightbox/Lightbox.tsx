@@ -75,6 +75,7 @@ export const Lightbox = ({ items, initialIndex, onClose }: LightboxProps) => {
         className="lightbox__image"
         src={current.image}
         alt={current.alt}
+        loading="lazy"
         onClick={(e) => e.stopPropagation()}
       />
 

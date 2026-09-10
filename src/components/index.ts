@@ -9,7 +9,7 @@ export type { TabsProps, TabItem } from "./Tabs";
 export { Card } from "./Card";
 export type { CardProps } from "./Card";
 export { Form } from "./Form";
-export type { FormProps } from "./Form";
+export type { FormProps, FormStatus } from "./Form";
 export { Faq } from "./Faq";
 export type { FaqProps } from "./Faq";
 export { Doodle } from "./Doodle";

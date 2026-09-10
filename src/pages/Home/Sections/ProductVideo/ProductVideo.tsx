@@ -30,6 +30,7 @@ export const ProductVideo = () => {
                 src="/Elementos graficos/brush violeta.svg"
                 className="product-video__title-brush"
                 alt=""
+                loading="lazy"
               />
             </span>
           </h2>

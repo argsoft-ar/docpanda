@@ -33,6 +33,7 @@ export const CloudinaryVideo = ({
           className="cloudinary-video__poster"
           src={posterSrc}
           alt={title ?? ""}
+          loading="lazy"
         />
         <span className="cloudinary-video__play-overlay" aria-hidden="true">
           <Play className="cloudinary-video__play-icon" />
@@ -53,6 +54,7 @@ export const CloudinaryVideo = ({
         muted
         loop
         playsInline
+        aria-label={title ?? "Video de producto"}
       />
     </div>
   );

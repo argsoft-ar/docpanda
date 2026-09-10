@@ -42,6 +42,7 @@ export const Process = () => {
                   }
                   className="process__step-number__brush"
                   alt=""
+                  loading="lazy"
                 />
                 {String(index + 1).padStart(2, "0")}.
               </span>

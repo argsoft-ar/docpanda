@@ -53,6 +53,7 @@ export const Card = ({
                 controls
                 autoPlay={isPlaying}
                 playsInline
+                aria-label={title ? `Video de ${title}` : "Video"}
               />
             ) : (
               <button
@@ -61,7 +62,7 @@ export const Card = ({
                 onClick={() => setIsPlaying(true)}
                 aria-label={title ? `Reproducir ${title}` : "Reproducir video"}
               >
-                <img className="card__image" src={image} alt={imageAlt} />
+                <img className="card__image" src={image} alt={imageAlt} loading="lazy" />
                 <span className="card__play-overlay" aria-hidden="true">
                   <Play className="card__play-icon" />
                 </span>
@@ -76,6 +77,7 @@ export const Card = ({
               className="card__image"
               src={image}
               alt={imageAlt}
+              loading="lazy"
               onError={
                 variant === "profile" ? () => setImageFailed(true) : undefined
               }
@@ -99,6 +101,7 @@ export const Card = ({
                   }
                   className="card__title-brush"
                   alt=""
+                  loading="lazy"
                 />
                 {title}
               </h3>
@@ -109,6 +112,7 @@ export const Card = ({
                   src="/Elementos graficos/brush verde.svg"
                   className="card__title-brush-under"
                   alt=""
+                  loading="lazy"
                 />
               </h3>
             ) : (

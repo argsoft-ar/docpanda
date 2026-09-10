@@ -1,7 +1,10 @@
 import { useState } from "react";
 import type { FormEvent, ChangeEvent } from "react";
+import { CheckCircle, Loader2, XCircle } from "lucide-react";
 import type { ContactFormField } from "../../data";
 import "./Form.css";
+
+export type FormStatus = "idle" | "loading" | "success" | "error";
 
 export interface FormProps {
   fields: ContactFormField[];
@@ -9,6 +12,8 @@ export interface FormProps {
   onSubmit: (values: Record<string, string>) => void;
   title?: string;
   description?: string;
+  status?: FormStatus;
+  statusMessage?: string;
 }
 
 export const Form = ({
@@ -17,11 +22,23 @@ export const Form = ({
   onSubmit,
   title,
   description,
+  status = "idle",
+  statusMessage = "",
 }: FormProps) => {
   const [values, setValues] = useState<Record<string, string>>(() =>
     Object.fromEntries(fields.map((field) => [field.name, ""])),
   );
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [lastStatus, setLastStatus] = useState(status);
+  const isSubmitting = status === "loading";
+
+  // Reset fields when a submission succeeds, without a setState-in-effect.
+  if (status !== lastStatus) {
+    setLastStatus(status);
+    if (status === "success") {
+      setValues(Object.fromEntries(fields.map((field) => [field.name, ""])));
+    }
+  }
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -38,6 +55,8 @@ export const Form = ({
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (isSubmitting) return;
 
     const nextErrors: Record<string, string> = {};
     for (const field of fields) {
@@ -59,6 +78,14 @@ export const Form = ({
     <form className="form" onSubmit={handleSubmit} noValidate>
       {title && <h3 className="form__title">{title}</h3>}
       {description && <p className="form__description">{description}</p>}
+
+      {statusMessage && (
+        <div className={`form__status form__status--${status}`} role="status">
+          {status === "success" && <CheckCircle size={20} />}
+          {status === "error" && <XCircle size={20} />}
+          <span>{statusMessage}</span>
+        </div>
+      )}
 
       {fields.map((field) => {
         const error = errors[field.name];
@@ -87,6 +114,7 @@ export const Form = ({
                 onChange={handleChange}
                 aria-invalid={Boolean(error)}
                 aria-describedby={error ? errorId : undefined}
+                disabled={isSubmitting}
                 rows={4}
               />
             ) : (
@@ -101,6 +129,7 @@ export const Form = ({
                 onChange={handleChange}
                 aria-invalid={Boolean(error)}
                 aria-describedby={error ? errorId : undefined}
+                disabled={isSubmitting}
               />
             )}
 
@@ -113,8 +142,15 @@ export const Form = ({
         );
       })}
 
-      <button className="form__submit" type="submit">
-        {submitLabel}
+      <button className="form__submit" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? (
+          <>
+            <Loader2 size={20} className="form__spinner" />
+            Enviando...
+          </>
+        ) : (
+          submitLabel
+        )}
       </button>
     </form>
   );

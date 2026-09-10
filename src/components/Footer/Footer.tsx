@@ -81,6 +81,7 @@ const socialIconMap: Record<string, (() => React.ReactElement) | undefined> = {
 };
 
 export const Footer = ({
+  logoText,
   description,
   links,
   socials,
@@ -94,7 +95,7 @@ export const Footer = ({
 
         {/* Center column */}
         <div className="footer__brand">
-          <img className="footer__brand__image" src={brand} alt="" />
+          <img className="footer__brand__image" src={brand} alt={logoText} loading="lazy" />
           {socials && socials.length > 0 && (
             <ul className="footer__socials">
               {socials.map((social) => {

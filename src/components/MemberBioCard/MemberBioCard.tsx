@@ -22,6 +22,7 @@ export const MemberBioCard = ({
           className="member-bio-card__image"
           src={image}
           alt={imageAlt ?? name}
+          loading="lazy"
         />
       </div>
       <div className="member-bio-card__content">
