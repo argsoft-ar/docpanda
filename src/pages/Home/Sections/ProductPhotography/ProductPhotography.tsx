@@ -3,7 +3,7 @@ import { Lightbox, Tabs } from "../../../../components";
 import { photographyCategories, sectionHeadings } from "../../../../data";
 import "./ProductPhotography.css";
 
-const BENTO_PAGE_SIZE = 4;
+const GRID_PAGE_SIZE = 3;
 
 export const ProductPhotography = () => {
   const heading = sectionHeadings.photography;
@@ -24,12 +24,12 @@ export const ProductPhotography = () => {
 
   // Desktop-only pagination; mobile carousel renders every item instead
   const totalPages = Math.ceil(
-    (activeCategory?.items.length ?? 0) / BENTO_PAGE_SIZE,
+    (activeCategory?.items.length ?? 0) / GRID_PAGE_SIZE,
   );
   const currentPageItems =
     activeCategory?.items.slice(
-      pageIndex * BENTO_PAGE_SIZE,
-      (pageIndex + 1) * BENTO_PAGE_SIZE,
+      pageIndex * GRID_PAGE_SIZE,
+      (pageIndex + 1) * GRID_PAGE_SIZE,
     ) ?? [];
 
   // Tab click: switch category, reset desktop page and mobile carousel scroll
@@ -38,15 +38,15 @@ export const ProductPhotography = () => {
     setPageIndex(0);
     setLightboxIndex(null);
     setActiveImageIndex(0);
-    carouselRef.current?.scrollTo({ left: 0 });
+    carouselRef.current?.scrollTo({ top: 0 });
   };
 
-  // Auto-rotate bento page every 10s when category has more than one page (desktop only)
+  // Auto-rotate grid page every 5s when category has more than one page (desktop only)
   useEffect(() => {
     if (totalPages <= 1) return;
     const timer = setInterval(() => {
       setPageIndex((prev) => (prev + 1) % totalPages);
-    }, 10000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [totalPages, activeTabId]);
 
@@ -103,7 +103,7 @@ export const ProductPhotography = () => {
           icon="Star"
         />
 
-        {/* Gallery: snap-scroll carousel on mobile, asymmetric bento on desktop */}
+        {/* Gallery: vertical snap-scroll card list on mobile, 3-up grid on desktop */}
         {activeCategory && (
           <>
             <ul
@@ -123,12 +123,12 @@ export const ProductPhotography = () => {
                 >
                   <button
                     type="button"
-                    className="product-photography__bento-figure"
+                    className="product-photography__grid-figure"
                     onClick={() => setLightboxIndex(idx)}
                     aria-label={`Ver imagen: ${item.alt}`}
                   >
                     <img
-                      className="product-photography__bento-image"
+                      className="product-photography__grid-image"
                       src={item.image}
                       alt={item.alt}
                       loading="lazy"
@@ -140,22 +140,21 @@ export const ProductPhotography = () => {
 
             <ul
               key={`${activeTabId}-${pageIndex}`}
-              className="product-photography__bento"
-              data-count={currentPageItems.length}
+              className="product-photography__grid"
               aria-label="Galería de fotografía de producto"
             >
               {currentPageItems.map((item, i) => (
-                <li key={item.id} className="product-photography__bento-item">
+                <li key={item.id} className="product-photography__grid-item">
                   <button
                     type="button"
-                    className="product-photography__bento-figure"
+                    className="product-photography__grid-figure"
                     onClick={() =>
-                      setLightboxIndex(pageIndex * BENTO_PAGE_SIZE + i)
+                      setLightboxIndex(pageIndex * GRID_PAGE_SIZE + i)
                     }
                     aria-label={`Ver imagen: ${item.alt}`}
                   >
                     <img
-                      className="product-photography__bento-image"
+                      className="product-photography__grid-image"
                       src={item.image}
                       alt={item.alt}
                       loading="lazy"

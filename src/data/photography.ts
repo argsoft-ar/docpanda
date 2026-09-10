@@ -9,57 +9,43 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-ecommerce-1",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580281/Eurostil_xbfhxs.jpg",
-        alt: "Tupper ecommerce",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053621/Eurostil_2_iwkktn.jpg",
+        alt: "Eurostil ecommerce",
       },
       {
         id: "photo-ecommerce-2",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580282/Tupper_ecommerce_2_zha6pd.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053619/Eurostil_foto_ecommerce_aqeapo.jpg",
         alt: "Tupper ecommerce",
       },
       {
         id: "photo-ecommerce-3",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580281/Limon_ecommerce_uwqufk.jpg",
-        alt: "Limón ecommerce",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053617/1246134_1_iqnewy.jpg",
+        alt: "Producto ecommerce",
       },
       {
         id: "photo-ecommerce-4",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580283/Tupper_ecommerce_nopenn.jpg",
-        alt: "Eurostil",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053615/Drechsler-Consul2_oxmxju.jpg",
+        alt: "Drechsler Consul",
       },
       {
         id: "photo-ecommerce-5",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580280/Eurostil_foto_ecommerce_ay7vut.jpg",
-        alt: "Eurostil foto ecommerce",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053613/1231222_2_fugaaz.jpg",
+        alt: "Producto ecommerce",
       },
       {
         id: "photo-ecommerce-6",
         label: "Ecommerce",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580279/Eurostil_3_khkkwq.jpg",
-        alt: "Eurostil",
-      },
-      {
-        id: "photo-ecommerce-7",
-        label: "Ecommerce",
-        image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580279/Eurostil_2_od3lhn.jpg",
-        alt: "Eurostil",
-      },
-      {
-        id: "photo-ecommerce-8",
-        label: "Ecommerce",
-        image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580278/Drechsler-Staedtler_wrli4j.jpg",
-        alt: "Drechsler Staedtler",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053611/2292020201_1_kwxctq.jpg",
+        alt: "Producto ecommerce",
       },
     ],
   },
@@ -71,42 +57,42 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-lifestyle-1",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580290/Ibi_03_Lifestyle_hpgdpo.jpg",
-        alt: "Citric Lifestyle",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053398/Matero_situacion_1_tai6z8.jpg",
+        alt: "Matero situación",
       },
       {
         id: "photo-lifestyle-2",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580292/Matero_situacion_1_zikg3t.jpg",
-        alt: "Matero situación",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053396/Citric_02_Lifestyle_kigeeh.jpg",
+        alt: "Citric Lifestyle",
       },
       {
         id: "photo-lifestyle-3",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580291/Citric_02_Lifestyle_hritng.jpg",
-        alt: "Citric Lifestyle",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053395/Ibi_03_Lifestyle_tieypd.jpg",
+        alt: "Ibi Lifestyle",
       },
       {
         id: "photo-lifestyle-4",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580293/Citric_03_Lifestyle_qjrpwx.jpg",
-        alt: "Ibi Lifestyle",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053380/Citric_03_Lifestyle_mqxrbx.jpg",
+        alt: "Citric Lifestyle",
       },
       {
         id: "photo-lifestyle-5",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580290/Citric_04_Lifestyle_qlzcwm.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053379/Citric_04_Lifestyle_vz4u4p.jpg",
         alt: "Citric Lifestyle",
       },
       {
         id: "photo-lifestyle-6",
         label: "Lifestyle",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580289/Ibicraft_Lifestyle_uyvjlt.jpg",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053378/Ibicraft_Lifestyle_o5uilu.jpg",
         alt: "Ibicraft Lifestyle",
       },
     ],
@@ -119,57 +105,43 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-campaigns-1",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Mooving_BTS_2026_16_wzfgyk.jpg",
-        alt: "Mooving BTS 2026",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053533/Coleccion_Helen_5_mn3etd.jpg",
+        alt: "Colección Helen",
       },
       {
         id: "photo-campaigns-2",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580235/Mooving_BTS_2026_22_herxij.jpg",
-        alt: "Colección Helen",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053530/Ibicraft_Campa%C3%B1a_agendas_2027_2_cqtgi5.jpg",
+        alt: "Ibicraft Campaña agendas 2027",
       },
       {
         id: "photo-campaigns-3",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Coleccion_Helen_9_javnmz.jpg",
-        alt: "Colección Helen",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053529/Fiori_di_Casa_041_f3ek7e.jpg",
+        alt: "Fiori di Casa",
       },
       {
         id: "photo-campaigns-4",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580235/Coleccion_Helen_5_dvyydr.jpg",
-        alt: "Mooving BTS 2026",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053527/Ibicraft_Campa%C3%B1a_agendas_2027_3_eaqo1r.jpg",
+        alt: "Ibicraft Campaña agendas 2027",
       },
       {
         id: "photo-campaigns-5",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Fiori_di_Casa_041_pavppx.jpg",
-        alt: "Ibicraft Campaña agendas 2027",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053526/Mooving_BTS_2026_16_snmxna.jpg",
+        alt: "Mooving BTS 2026",
       },
       {
         id: "photo-campaigns-6",
         label: "Campañas",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Ibicraft_Campa%C3%B1a_agendas_2027_1_mvevrm.jpg",
-        alt: "Ibicraft Campaña agendas 2027",
-      },
-      {
-        id: "photo-campaigns-7",
-        label: "Campañas",
-        image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Ibicraft_Campa%C3%B1a_agendas_2027_2_aeltas.jpg",
-        alt: "Ibicraft Campaña agendas 2027",
-      },
-      {
-        id: "photo-campaigns-8",
-        label: "Campañas",
-        image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580234/Ibicraft_Campa%C3%B1a_agendas_2027_3_cfqac6.jpg",
-        alt: "Fiori di Casa",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053457/Mooving_BTS_2026_22_oi21ue.jpg",
+        alt: "Mooving BTS 2026",
       },
     ],
   },
@@ -181,57 +153,43 @@ export const photographyCategories: PhotographyCategory[] = [
         id: "photo-social-1",
         label: "Redes sociales",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580316/Big_Life_Retro_Pastel_4.5_3_bqoqzk.jpg",
-        alt: "Big Life Retro Pastel",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053368/Stich_5_ifktjp.jpg",
+        alt: "Stich",
       },
       {
         id: "photo-social-2",
         label: "Redes sociales",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580314/Stich_5_nebmvo.jpg",
-        alt: "Stich",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053366/Big_Life_Punchy_3_4.5_jllzun.jpg",
+        alt: "Big Life Punchy",
       },
       {
         id: "photo-social-3",
         label: "Redes sociales",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580313/Lata_rompecabeza_3_ga97ri.jpg",
-        alt: "Lata rompecabeza",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053365/REMERA_1_wjevhy.jpg",
+        alt: "Remera",
       },
       {
         id: "photo-social-4",
         label: "Redes sociales",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580313/Lata_rompecabeza_1_o8a4c2.jpg",
-        alt: "Lata rompecabeza",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053319/Big_Life_Deco_1_4.5_al17ao.jpg",
+        alt: "Big Life Deco",
       },
       {
         id: "photo-social-5",
         label: "Redes sociales",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580312/Box_2_zv4sg1.jpg",
-        alt: "Box",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053319/Window_art_2_pgonm1.jpg",
+        alt: "Window art",
       },
       {
         id: "photo-social-6",
         label: "Redes sociales",
         image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580310/Window_art_2_vyyone.jpg",
-        alt: "Window art",
-      },
-      {
-        id: "photo-social-7",
-        label: "Redes sociales",
-        image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580311/Big_Life_Punchy_3_4.5_eft6xw.jpg",
-        alt: "Big Life Punchy",
-      },
-      {
-        id: "photo-social-8",
-        label: "Redes sociales",
-        image:
-          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1787580310/BTS_Multipaper_fotos_4_ab2mjw.jpg",
-        alt: "BTS Multipaper",
+          "https://res.cloudinary.com/dry6jcgfn/image/upload/v1789053318/Estuche_lentes_1_vpklcl.jpg",
+        alt: "Estuche de lentes",
       },
     ],
   },
