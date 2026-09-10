@@ -62,7 +62,12 @@ export const Card = ({
                 onClick={() => setIsPlaying(true)}
                 aria-label={title ? `Reproducir ${title}` : "Reproducir video"}
               >
-                <img className="card__image" src={image} alt={imageAlt} loading="lazy" />
+                <img
+                  className="card__image"
+                  src={image}
+                  alt={imageAlt}
+                  loading="lazy"
+                />
                 <span className="card__play-overlay" aria-hidden="true">
                   <Play className="card__play-icon" />
                 </span>

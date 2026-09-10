@@ -29,7 +29,11 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
       <div className="navbar__inner">
         <a className="navbar__logo" href="#" onClick={closeMenu}>
           {logoImage && (
-            <img className="navbar__logo-image" src={logoImage} alt={logoText} />
+            <img
+              className="navbar__logo-image"
+              src={logoImage}
+              alt={logoText}
+            />
           )}
         </a>
 
