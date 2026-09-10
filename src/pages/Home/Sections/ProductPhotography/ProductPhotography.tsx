@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Lightbox, MediaTile, Tabs } from "../../../../components";
 import { photographyCategories, sectionHeadings } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import "./ProductPhotography.css";
 
 const GRID_PAGE_SIZE = 3;
@@ -15,6 +16,8 @@ export const ProductPhotography = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
   const carouselRef = useRef<HTMLUListElement>(null);
   const slideRefs = useRef<(HTMLLIElement | null)[]>([]);
 
@@ -77,7 +80,11 @@ export const ProductPhotography = () => {
   }, [activeTabId]);
 
   return (
-    <section className="product-photography" id="photography">
+    <section
+      className={`product-photography reveal${isInView ? " reveal--visible" : ""}`}
+      id="photography"
+      ref={sectionRef}
+    >
       <div className="product-photography__inner">
         <header className="product-photography__header">
           <h2 className="product-photography__title">

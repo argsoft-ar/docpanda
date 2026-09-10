@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { MediaTile, VideoLightbox, Tabs } from "../../../../components";
 import { sectionHeadings, videoCategories } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import "./ProductVideo.css";
 
 export const ProductVideo = () => {
@@ -8,6 +9,8 @@ export const ProductVideo = () => {
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
   const [activeTabId, setActiveTabId] = useState(videoCategories[0]?.id ?? "");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
 
   const activeCategory = videoCategories.find(
     (category) => category.id === activeTabId,
@@ -19,7 +22,11 @@ export const ProductVideo = () => {
   };
 
   return (
-    <section className="product-video" id="video">
+    <section
+      className={`product-video reveal${isInView ? " reveal--visible" : ""}`}
+      id="video"
+      ref={sectionRef}
+    >
       <div className="product-video__inner">
         <header className="product-video__header">
           <h2 className="product-video__title">

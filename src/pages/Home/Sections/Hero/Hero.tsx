@@ -1,10 +1,19 @@
+import { useRef } from "react";
 import { Doodle } from "../../../../components";
 import { heroContent } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import "./Hero.css";
 
 export const Hero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef);
+
   return (
-    <section className="hero" id="hero">
+    <section
+      className={`hero reveal${isInView ? " reveal--visible" : ""}`}
+      id="hero"
+      ref={sectionRef}
+    >
       <video
         className="hero__video hero__video--mobile"
         src={heroContent.videoMobile}

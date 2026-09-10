@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Star } from "lucide-react";
 import { Card, Doodle } from "../../../../components";
 import type { Brand } from "../../../../data";
@@ -9,6 +9,7 @@ import {
   services,
   stats,
 } from "../../../../data";
+import { useInView } from "../../../../hooks/useInView";
 import "./WorkWith.css";
 
 /** Logo con fallback: si el archivo no carga, muestra el nombre de la marca. */
@@ -33,6 +34,8 @@ const BrandLogo = ({ brand }: { brand: Brand }) => {
 export const WorkWith = () => {
   const heading = sectionHeadings.brands;
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
+  const introRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(introRef);
 
   return (
     <section className="work-with" id="brands">
@@ -53,7 +56,10 @@ export const WorkWith = () => {
         </ul>
       </div>
 
-      <div className="work-with__inner">
+      <div
+        className={`work-with__inner reveal${isInView ? " reveal--visible" : ""}`}
+        ref={introRef}
+      >
         <div className="work-with__panel">
           <h2 className="work-with__title">
             {heading.titlePart1 && `${heading.titlePart1} `}
