@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Lightbox, Tabs } from "../../../../components";
+import { Lightbox, MediaTile, Tabs } from "../../../../components";
 import { photographyCategories, sectionHeadings } from "../../../../data";
 import "./ProductPhotography.css";
 
@@ -121,19 +121,14 @@ export const ProductPhotography = () => {
                     slideRefs.current[idx] = el;
                   }}
                 >
-                  <button
-                    type="button"
-                    className="product-photography__grid-figure"
+                  <MediaTile
+                    mediaType="image"
+                    aspect="4:5"
+                    src={item.image}
+                    alt={item.alt}
+                    ariaLabel={`Ver imagen: ${item.alt}`}
                     onClick={() => setLightboxIndex(idx)}
-                    aria-label={`Ver imagen: ${item.alt}`}
-                  >
-                    <img
-                      className="product-photography__grid-image"
-                      src={item.image}
-                      alt={item.alt}
-                      loading="lazy"
-                    />
-                  </button>
+                  />
                 </li>
               ))}
             </ul>
@@ -145,21 +140,16 @@ export const ProductPhotography = () => {
             >
               {currentPageItems.map((item, i) => (
                 <li key={item.id} className="product-photography__grid-item">
-                  <button
-                    type="button"
-                    className="product-photography__grid-figure"
+                  <MediaTile
+                    mediaType="image"
+                    aspect="4:5"
+                    src={item.image}
+                    alt={item.alt}
+                    ariaLabel={`Ver imagen: ${item.alt}`}
                     onClick={() =>
                       setLightboxIndex(pageIndex * GRID_PAGE_SIZE + i)
                     }
-                    aria-label={`Ver imagen: ${item.alt}`}
-                  >
-                    <img
-                      className="product-photography__grid-image"
-                      src={item.image}
-                      alt={item.alt}
-                      loading="lazy"
-                    />
-                  </button>
+                  />
                 </li>
               ))}
             </ul>

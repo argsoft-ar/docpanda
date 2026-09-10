@@ -25,3 +25,10 @@ export { CloudinaryVideo } from "./CloudinaryVideo";
 export type { CloudinaryVideoProps } from "./CloudinaryVideo";
 export { VideoLightbox } from "./VideoLightbox";
 export type { VideoLightboxProps } from "./VideoLightbox";
+export { MediaTile } from "./MediaTile";
+export type {
+  MediaTileProps,
+  ImageMediaTileProps,
+  VideoMediaTileProps,
+  MediaTileAspect,
+} from "./MediaTile";

@@ -1,0 +1,48 @@
+.media-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.media-tile--image {
+  cursor: pointer;
+}
+
+.media-tile--image:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.media-tile__image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  background-color: var(--color-surface-lavender);
+  transition: transform 0.4s ease;
+}
+
+.media-tile--image:hover .media-tile__image {
+  transform: scale(1.04);
+}
+
+.media-tile--aspect-4-5 .media-tile__image {
+  aspect-ratio: 4 / 5;
+}
+
+.media-tile--aspect-portrait .media-tile__image {
+  aspect-ratio: 9 / 16;
+}
+
+.media-tile--aspect-landscape .media-tile__image {
+  aspect-ratio: 16 / 9;
+}
+
+.media-tile--aspect-square .media-tile__image {
+  aspect-ratio: 1 / 1;
+}

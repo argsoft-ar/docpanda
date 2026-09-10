@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CloudinaryVideo, VideoLightbox, Tabs } from "../../../../components";
+import { MediaTile, VideoLightbox, Tabs } from "../../../../components";
 import { sectionHeadings, videoCategories } from "../../../../data";
 import "./ProductVideo.css";
 
@@ -55,11 +55,15 @@ export const ProductVideo = () => {
           >
             <div className="product-video__grid">
               {activeCategory.items.map((item, i) => (
-                <CloudinaryVideo
+                <MediaTile
                   key={item.id}
+                  mediaType="video"
+                  aspect="portrait"
                   publicId={item.cloudinaryId}
                   title={item.title}
-                  aspect="portrait"
+                  ariaLabel={
+                    item.title ? `Reproducir ${item.title}` : "Reproducir video"
+                  }
                   onClick={() => setLightboxIndex(i)}
                 />
               ))}

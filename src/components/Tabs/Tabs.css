@@ -1,5 +1,6 @@
 .tabs {
   display: flex;
+  justify-content: flex-start;
   gap: var(--space-sm);
   overflow-x: auto;
   scrollbar-width: none;
@@ -58,6 +59,7 @@
 
 @media (min-width: 640px) {
   .tabs {
+    justify-content: center;
     gap: var(--space-md);
     flex-wrap: wrap;
   }
