@@ -100,6 +100,6 @@ export const Lightbox = ({ items, initialIndex, onClose }: LightboxProps) => {
         </p>
       )}
     </div>,
-    document.body
+    document.body,
   );
 };
