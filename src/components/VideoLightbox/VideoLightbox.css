@@ -10,6 +10,7 @@
 .video-lightbox {
   position: fixed;
   inset: 0;
+  height: 100dvh;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -23,6 +24,7 @@
   display: block;
   max-width: min(92vw, 1280px);
   max-height: 85vh;
+  max-height: 85dvh;
   width: auto;
   height: auto;
   border-radius: var(--radius-md);
