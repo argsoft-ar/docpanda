@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   getCloudinaryVideoUrl,
@@ -52,7 +53,7 @@ export const VideoLightbox = ({
   const videoSrc = getCloudinaryVideoUrl(current.cloudinaryId);
   const posterSrc = getCloudinaryPosterUrl(current.cloudinaryId);
 
-  return (
+  return createPortal(
     <div
       className="video-lightbox"
       role="dialog"
@@ -114,6 +115,7 @@ export const VideoLightbox = ({
           {currentIndex + 1} / {items.length}
         </p>
       )}
-    </div>
+    </div>,
+    document.body,
   );
 };
