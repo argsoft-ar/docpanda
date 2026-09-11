@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import "./Lightbox.css";
 
@@ -40,7 +41,7 @@ export const Lightbox = ({ items, initialIndex, onClose }: LightboxProps) => {
   const current = items[currentIndex];
   if (!current) return null;
 
-  return (
+  return createPortal(
     <div
       className="lightbox"
       role="dialog"
@@ -98,6 +99,7 @@ export const Lightbox = ({ items, initialIndex, onClose }: LightboxProps) => {
           {currentIndex + 1} / {items.length}
         </p>
       )}
-    </div>
+    </div>,
+    document.body
   );
 };
