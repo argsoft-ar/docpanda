@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { NavLink } from "../../data";
+import { useGTM } from "../../hooks";
 import logoImage from "../../../public/Logos panda/logo_white.png";
 import "./Navbar.css";
 
@@ -14,6 +15,7 @@ export interface NavbarProps {
 export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { trackNavigationClick } = useGTM();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8);
@@ -23,6 +25,24 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
   }, []);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const handleLinkClick = (link: NavLink) => {
+    trackNavigationClick({
+      label: link.label,
+      href: link.href,
+    });
+    closeMenu();
+  };
+
+  const handleCtaClick = () => {
+    if (ctaLabel && ctaHref) {
+      trackNavigationClick({
+        label: ctaLabel,
+        href: ctaHref,
+      });
+    }
+    closeMenu();
+  };
 
   return (
     <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`.trim()}>
@@ -61,7 +81,7 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
                 <a
                   className="navbar__link"
                   href={link.href}
-                  onClick={closeMenu}
+                  onClick={() => handleLinkClick(link)}
                 >
                   {link.label}
                 </a>
@@ -69,7 +89,7 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
             ))}
           </ul>
           {ctaLabel && ctaHref && (
-            <a className="navbar__cta" href={ctaHref} onClick={closeMenu}>
+            <a className="navbar__cta" href={ctaHref} onClick={handleCtaClick}>
               {ctaLabel}
             </a>
           )}
@@ -78,3 +98,4 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
     </header>
   );
 };
+

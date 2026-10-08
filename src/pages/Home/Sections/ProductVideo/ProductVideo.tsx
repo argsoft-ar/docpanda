@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { MediaTile, VideoLightbox, Tabs } from "../../../../components";
 import { sectionHeadings, videoCategories } from "../../../../data";
-import { useInView } from "../../../../hooks/useInView";
+import { useInView, useGTM } from "../../../../hooks";
 import "./ProductVideo.css";
 
 export const ProductVideo = () => {
@@ -11,6 +11,7 @@ export const ProductVideo = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef);
+  const { trackCategoryView, trackMediaView } = useGTM();
 
   const activeCategory = videoCategories.find(
     (category) => category.id === activeTabId,
@@ -19,7 +20,26 @@ export const ProductVideo = () => {
   const handleTabChange = (id: string) => {
     setActiveTabId(id);
     setLightboxIndex(null);
+    const cat = videoCategories.find((c) => c.id === id);
+    trackCategoryView({
+      section: "video",
+      categoryId: id,
+      categoryLabel: cat?.label,
+    });
   };
+
+  const handleOpenLightbox = (index: number) => {
+    setLightboxIndex(index);
+    const item = activeCategory?.items[index];
+    if (item) {
+      trackMediaView({
+        mediaType: "video",
+        title: item.title,
+        mediaId: item.id,
+      });
+    }
+  };
+
 
   return (
     <section
@@ -72,7 +92,7 @@ export const ProductVideo = () => {
                   ariaLabel={
                     item.title ? `Reproducir ${item.title}` : "Reproducir video"
                   }
-                  onClick={() => setLightboxIndex(i)}
+                  onClick={() => handleOpenLightbox(i)}
                 />
               ))}
             </div>
