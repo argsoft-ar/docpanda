@@ -5,4 +5,7 @@ export interface WhatsappFabProps {
   message: string;
   /** Tooltip text shown on hover */
   tooltip?: string;
+  /** Optional click callback */
+  onClick?: () => void;
 }
+
