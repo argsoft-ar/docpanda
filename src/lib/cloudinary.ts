@@ -30,7 +30,9 @@ export const getCloudinaryVideoUrl = (
 
 export const getCloudinaryPosterUrl = (
   publicId: string,
-  _options: CloudinaryPosterOptions = {},
+  options: CloudinaryPosterOptions = {},
 ): string => {
-  return `https://res.cloudinary.com/${cloudName}/video/upload/f_jpg,q_auto,so_0,w_800/${encodePublicId(publicId)}.jpg`;
+  const width = options.width ?? 800;
+  return `https://res.cloudinary.com/${cloudName}/video/upload/f_jpg,q_auto,so_0,w_${width}/${encodePublicId(publicId)}.jpg`;
 };
+

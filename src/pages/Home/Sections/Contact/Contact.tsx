@@ -4,7 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { Button, Doodle, Form } from "../../../../components";
 import type { FormStatus } from "../../../../components";
 import { contactInfo } from "../../../../data";
-import { useInView } from "../../../../hooks/useInView";
+import { useInView, useGTM } from "../../../../hooks";
 import pandaImagen from "../../../../../public/Panda/panda_wpp.png";
 
 import "./Contact.css";
@@ -22,6 +22,7 @@ export const Contact = () => {
   const [statusMessage, setStatusMessage] = useState("");
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef);
+  const { trackLead, trackWhatsAppClick } = useGTM();
 
   const whatsappHref = buildWhatsappHref(
     contactInfo.whatsappNumber,
@@ -42,6 +43,12 @@ export const Contact = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
+      trackLead({
+        formName: "contact_form",
+        status: "success",
+        service: values.service,
+      });
+
       setStatus("success");
       setStatusMessage(
         "¡Consulta enviada con éxito! Te responderemos a la brevedad.",
@@ -53,6 +60,12 @@ export const Contact = () => {
       }, 5000);
     } catch (error) {
       console.error("EmailJS error:", error);
+
+      trackLead({
+        formName: "contact_form",
+        status: "error",
+      });
+
       setStatus("error");
       setStatusMessage(
         "Hubo un error al enviar tu consulta. Por favor, intentá de nuevo.",
@@ -64,6 +77,7 @@ export const Contact = () => {
       }, 5000);
     }
   };
+
 
   return (
     <section
@@ -126,6 +140,12 @@ export const Contact = () => {
                 variant="secondary"
                 size="lg"
                 icon="MessageCircle"
+                onClick={() => {
+                  trackWhatsAppClick({
+                    location: "contact_section",
+                    phoneNumber: contactInfo.whatsappNumber,
+                  });
+                }}
               />
             </div>
           </aside>

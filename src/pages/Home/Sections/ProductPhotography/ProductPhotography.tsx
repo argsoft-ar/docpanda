@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Lightbox, MediaTile, Tabs } from "../../../../components";
 import { photographyCategories, sectionHeadings } from "../../../../data";
-import { useInView } from "../../../../hooks/useInView";
+import { useInView, useGTM } from "../../../../hooks";
 import "./ProductPhotography.css";
 
 const GRID_PAGE_SIZE = 3;
@@ -15,6 +15,7 @@ export const ProductPhotography = () => {
   const [pageIndex, setPageIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const { trackCategoryView, trackMediaView } = useGTM();
 
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef);
@@ -42,7 +43,26 @@ export const ProductPhotography = () => {
     setLightboxIndex(null);
     setActiveImageIndex(0);
     carouselRef.current?.scrollTo({ top: 0 });
+    const cat = photographyCategories.find((c) => c.id === id);
+    trackCategoryView({
+      section: "photography",
+      categoryId: id,
+      categoryLabel: cat?.label,
+    });
   };
+
+  const handleOpenLightbox = (index: number) => {
+    setLightboxIndex(index);
+    const item = activeCategory?.items[index];
+    if (item) {
+      trackMediaView({
+        mediaType: "image",
+        title: item.alt,
+        mediaId: item.id,
+      });
+    }
+  };
+
 
   // Auto-rotate grid page every 5s when category has more than one page (desktop only)
   useEffect(() => {
@@ -135,7 +155,7 @@ export const ProductPhotography = () => {
                     src={item.image}
                     alt={item.alt}
                     ariaLabel={`Ver imagen: ${item.alt}`}
-                    onClick={() => setLightboxIndex(idx)}
+                    onClick={() => handleOpenLightbox(idx)}
                   />
                 </li>
               ))}
@@ -155,7 +175,7 @@ export const ProductPhotography = () => {
                     alt={item.alt}
                     ariaLabel={`Ver imagen: ${item.alt}`}
                     onClick={() =>
-                      setLightboxIndex(pageIndex * GRID_PAGE_SIZE + i)
+                      handleOpenLightbox(pageIndex * GRID_PAGE_SIZE + i)
                     }
                   />
                 </li>
