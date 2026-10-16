@@ -1,6 +1,5 @@
-import type { LucideIcon } from "lucide-react";
-import { icons } from "lucide-react";
 import type { LucideIconName } from "../../data";
+import { Icon } from "../Icon";
 import "./Button.css";
 
 export interface ButtonProps {
@@ -16,8 +15,6 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-const iconMap = icons as Record<string, LucideIcon | undefined>;
-
 export const Button = ({
   label,
   variant = "primary",
@@ -30,8 +27,6 @@ export const Button = ({
   fullWidth = false,
   disabled = false,
 }: ButtonProps) => {
-  const IconComponent = icon ? iconMap[icon] : undefined;
-
   const className = [
     "button",
     `button--${variant}`,
@@ -44,12 +39,12 @@ export const Button = ({
 
   const content = (
     <>
-      {IconComponent && iconPosition === "left" && (
-        <IconComponent className="button__icon" aria-hidden="true" />
+      {icon && iconPosition === "left" && (
+        <Icon name={icon} className="button__icon" aria-hidden="true" />
       )}
       <span className="button__label">{label}</span>
-      {IconComponent && iconPosition === "right" && (
-        <IconComponent className="button__icon" aria-hidden="true" />
+      {icon && iconPosition === "right" && (
+        <Icon name={icon} className="button__icon" aria-hidden="true" />
       )}
     </>
   );

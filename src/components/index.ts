@@ -1,5 +1,7 @@
 export { Button } from "./Button";
 export type { ButtonProps } from "./Button";
+export { Icon } from "./Icon";
+export type { IconProps } from "./Icon";
 export { Navbar } from "./Navbar";
 export type { NavbarProps } from "./Navbar";
 export { Footer } from "./Footer";
@@ -19,11 +21,10 @@ export type { WhatsappFabProps } from "./WhatsappFab";
 export { ScrollToTop } from "./ScrollToTop";
 export { MemberBioCard } from "./MemberBioCard";
 export type { MemberBioCardProps } from "./MemberBioCard";
-export { Lightbox } from "./Lightbox";
+// Lightbox and VideoLightbox are lazy-loaded from their own folders to keep them out of the main chunk.
 export type { LightboxProps } from "./Lightbox";
 export { CloudinaryVideo } from "./CloudinaryVideo";
 export type { CloudinaryVideoProps } from "./CloudinaryVideo";
-export { VideoLightbox } from "./VideoLightbox";
 export type { VideoLightboxProps } from "./VideoLightbox";
 export { MediaTile } from "./MediaTile";
 export type {

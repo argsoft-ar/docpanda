@@ -1,10 +1,23 @@
-import { useState, useEffect, useRef } from "react";
-import { Lightbox, MediaTile, Tabs } from "../../../../components";
+import { lazy, Suspense, useState, useEffect, useRef } from "react";
+import { MediaTile, Tabs } from "../../../../components";
 import { photographyCategories, sectionHeadings } from "../../../../data";
 import { useInView, useGTM } from "../../../../hooks";
+import {
+  getCloudinaryImageSrcSet,
+  getCloudinaryImageUrl,
+} from "../../../../lib/cloudinary";
 import "./ProductPhotography.css";
 
+const Lightbox = lazy(() =>
+  import("../../../../components/Lightbox").then((m) => ({
+    default: m.Lightbox,
+  })),
+);
+
 const GRID_PAGE_SIZE = 3;
+const TILE_WIDTHS = [400, 640, 800, 1080] as const;
+const CAROUSEL_SIZES = "100vw";
+const GRID_SIZES = "20rem";
 
 export const ProductPhotography = () => {
   const heading = sectionHeadings.photography;
@@ -62,7 +75,6 @@ export const ProductPhotography = () => {
       });
     }
   };
-
 
   // Auto-rotate grid page every 5s when category has more than one page (desktop only)
   useEffect(() => {
@@ -152,7 +164,9 @@ export const ProductPhotography = () => {
                   <MediaTile
                     mediaType="image"
                     aspect="4:5"
-                    src={item.image}
+                    src={getCloudinaryImageUrl(item.image, { width: 800 })}
+                    srcSet={getCloudinaryImageSrcSet(item.image, TILE_WIDTHS)}
+                    sizes={CAROUSEL_SIZES}
                     alt={item.alt}
                     ariaLabel={`Ver imagen: ${item.alt}`}
                     onClick={() => handleOpenLightbox(idx)}
@@ -171,7 +185,9 @@ export const ProductPhotography = () => {
                   <MediaTile
                     mediaType="image"
                     aspect="4:5"
-                    src={item.image}
+                    src={getCloudinaryImageUrl(item.image, { width: 800 })}
+                    srcSet={getCloudinaryImageSrcSet(item.image, TILE_WIDTHS)}
+                    sizes={GRID_SIZES}
                     alt={item.alt}
                     ariaLabel={`Ver imagen: ${item.alt}`}
                     onClick={() =>
@@ -186,11 +202,13 @@ export const ProductPhotography = () => {
       </div>
 
       {lightboxIndex !== null && activeCategory && (
-        <Lightbox
-          items={activeCategory.items}
-          initialIndex={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-        />
+        <Suspense fallback={null}>
+          <Lightbox
+            items={activeCategory.items}
+            initialIndex={lightboxIndex}
+            onClose={() => setLightboxIndex(null)}
+          />
+        </Suspense>
       )}
     </section>
   );

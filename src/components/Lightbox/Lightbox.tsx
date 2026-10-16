@@ -1,7 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  getCloudinaryImageSrcSet,
+  getCloudinaryImageUrl,
+} from "../../lib/cloudinary";
 import "./Lightbox.css";
+
+const LIGHTBOX_WIDTHS = [800, 1200, 1600] as const;
 
 export interface LightboxProps {
   items: { image: string; alt: string }[];
@@ -74,9 +80,11 @@ export const Lightbox = ({ items, initialIndex, onClose }: LightboxProps) => {
 
       <img
         className="lightbox__image"
-        src={current.image}
+        src={getCloudinaryImageUrl(current.image, { width: 1600 })}
+        srcSet={getCloudinaryImageSrcSet(current.image, LIGHTBOX_WIDTHS)}
+        sizes="min(90vw, 1200px)"
         alt={current.alt}
-        loading="lazy"
+        decoding="async"
         onClick={(e) => e.stopPropagation()}
       />
 

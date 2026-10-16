@@ -48,7 +48,7 @@
 /* ---------- Panda ---------- */
 
 .about-us__panda {
-  background-image: url("../../../../../public/Panda/panda_about.png");
+  background-image: url("../../../../assets/images/panda_about.webp");
   background-size: cover;
   background-position: center;
   background-color: var(--color-surface-lavender);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import type { NavLink } from "../../data";
 import { useGTM } from "../../hooks";
-import logoImage from "../../../public/Logos panda/logo_white.png";
+import LOGO_IMAGE from "../../assets/images/logo_white.webp";
 import "./Navbar.css";
 
 export interface NavbarProps {
@@ -48,13 +48,15 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
     <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`.trim()}>
       <div className="navbar__inner">
         <a className="navbar__logo" href="#" onClick={closeMenu}>
-          {logoImage && (
-            <img
-              className="navbar__logo-image"
-              src={logoImage}
-              alt={logoText}
-            />
-          )}
+          <img
+            className="navbar__logo-image"
+            src={LOGO_IMAGE}
+            width={400}
+            height={400}
+            alt={logoText}
+            loading="eager"
+            decoding="async"
+          />
         </a>
 
         <button
@@ -98,4 +100,3 @@ export const Navbar = ({ logoText, links, ctaLabel, ctaHref }: NavbarProps) => {
     </header>
   );
 };
-

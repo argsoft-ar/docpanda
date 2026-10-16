@@ -1,5 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import type { RefObject } from "react";
+
+const noopSubscribe = () => () => {};
+const getHasObserver = () => typeof IntersectionObserver !== "undefined";
+// Server assumes support so SSR markup matches the first client render.
+const getServerHasObserver = () => true;
 
 export interface UseInViewOptions {
   /** Fraction of the target visible before it's considered "in view". */
@@ -18,12 +23,15 @@ export const useInView = <T extends Element>(
   options: UseInViewOptions = {},
 ): boolean => {
   const { threshold = 0.15, rootMargin = "0px", triggerOnce = true } = options;
-  const [isInView, setIsInView] = useState(
-    () => typeof IntersectionObserver === "undefined",
+  const [isInView, setIsInView] = useState(false);
+  const hasObserver = useSyncExternalStore(
+    noopSubscribe,
+    getHasObserver,
+    getServerHasObserver,
   );
 
   useEffect(() => {
-    if (typeof IntersectionObserver === "undefined") return;
+    if (!hasObserver) return;
 
     const node = ref.current;
     if (!node) return;
@@ -42,7 +50,7 @@ export const useInView = <T extends Element>(
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [ref, threshold, rootMargin, triggerOnce]);
+  }, [ref, threshold, rootMargin, triggerOnce, hasObserver]);
 
-  return isInView;
+  return isInView || !hasObserver;
 };
