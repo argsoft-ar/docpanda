@@ -6,19 +6,21 @@
   background-color: var(--color-bg);
 }
 
-.hero__video {
+.hero__media {
+  position: relative;
   width: 100%;
-  object-fit: cover;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
   background-color: var(--color-surface-lavender);
 }
 
-.hero__video--mobile {
-  display: block;
-}
-
-.hero__video--desktop {
-  display: none;
-  aspect-ratio: 16 / 7;
+.hero__poster,
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ---------- Franja inferior violeta ---------- */
@@ -81,12 +83,8 @@
 }
 
 @media (min-width: 640px) {
-  .hero__video--mobile {
-    display: none;
-  }
-
-  .hero__video--desktop {
-    display: block;
+  .hero__media {
+    aspect-ratio: 16 / 7;
   }
 
   .hero__doodle {

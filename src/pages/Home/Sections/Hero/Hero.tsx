@@ -2,38 +2,61 @@ import { useRef } from "react";
 import { Doodle } from "../../../../components";
 import { heroContent } from "../../../../data";
 import { useInView } from "../../../../hooks/useInView";
+import { useMediaQuery } from "../../../../hooks/useMediaQuery";
 import "./Hero.css";
 
+// Must match the breakpoint in Hero.css and the poster preloads in index.html.
+const DESKTOP_QUERY = "(min-width: 640px)";
+
 export const Hero = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef);
+  const bandRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(bandRef);
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const videoSrc =
+    isDesktop === null
+      ? null
+      : isDesktop
+        ? heroContent.videoDesktop
+        : heroContent.videoMobile;
 
   return (
-    <section
-      className={`hero reveal${isInView ? " reveal--visible" : ""}`}
-      id="hero"
-      ref={sectionRef}
-    >
-      <video
-        className="hero__video hero__video--mobile"
-        src={heroContent.videoMobile}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      />
-      <video
-        className="hero__video hero__video--desktop"
-        src={heroContent.videoDesktop}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      />
+    <section className="hero" id="hero">
+      <div className="hero__media">
+        <picture>
+          <source
+            media={DESKTOP_QUERY}
+            srcSet={heroContent.posterDesktop}
+            width={1920}
+            height={1080}
+          />
+          <img
+            className="hero__poster"
+            src={heroContent.posterMobile}
+            width={720}
+            height={1280}
+            alt=""
+            fetchPriority="high"
+            loading="eager"
+          />
+        </picture>
+        {videoSrc && (
+          <video
+            key={videoSrc}
+            className="hero__video"
+            src={videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+          />
+        )}
+      </div>
 
-      <div className="hero__band">
+      <div
+        className={`hero__band reveal${isInView ? " reveal--visible" : ""}`}
+        ref={bandRef}
+      >
         <div className="hero__band-inner">
           <div className="hero__band-row">
             <Doodle name="sparkle" className="hero__doodle" />

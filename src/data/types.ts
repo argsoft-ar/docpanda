@@ -22,6 +22,8 @@ export interface HeroContent {
   subtitleBold: string;
   videoMobile: string;
   videoDesktop: string;
+  posterMobile: string;
+  posterDesktop: string;
 }
 
 export interface ProcessStep {

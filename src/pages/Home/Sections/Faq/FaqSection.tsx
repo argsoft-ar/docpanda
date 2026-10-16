@@ -1,13 +1,9 @@
 import { useRef, useState } from "react";
-import type { LucideIcon } from "lucide-react";
-import { icons } from "lucide-react";
-import { Button, Faq } from "../../../../components";
+import { Button, Faq, Icon } from "../../../../components";
 import { faqContactBlock, faqItems, sectionHeadings } from "../../../../data";
 import { useInView } from "../../../../hooks/useInView";
-import pandaImage from "../../../../../public/Panda/panda_faq.png";
+import PANDA_IMAGE from "../../../../assets/images/panda_faq.webp";
 import "./FaqSection.css";
-
-const iconMap = icons as Record<string, LucideIcon | undefined>;
 
 export const FaqSection = () => {
   const heading = sectionHeadings.faq;
@@ -36,10 +32,13 @@ export const FaqSection = () => {
           {pandaVisible && (
             <img
               className="faq-section__panda"
-              src={pandaImage}
+              src={PANDA_IMAGE}
+              width={720}
+              height={410}
               alt=""
               aria-hidden="true"
               loading="lazy"
+              decoding="async"
               onError={() => setPandaVisible(false)}
             />
           )}
@@ -64,25 +63,18 @@ export const FaqSection = () => {
             </div>
 
             <ul className="faq-section__channels">
-              {faqContactBlock.channels.map((channel) => {
-                const IconComponent = iconMap[channel.icon];
-                return (
-                  <li className="faq-section__channel" key={channel.id}>
-                    <a
-                      className="faq-section__channel-link"
-                      href={channel.href}
-                    >
-                      {IconComponent && (
-                        <IconComponent
-                          className="faq-section__channel-icon"
-                          aria-hidden="true"
-                        />
-                      )}
-                      <span>{channel.label}</span>
-                    </a>
-                  </li>
-                );
-              })}
+              {faqContactBlock.channels.map((channel) => (
+                <li className="faq-section__channel" key={channel.id}>
+                  <a className="faq-section__channel-link" href={channel.href}>
+                    <Icon
+                      name={channel.icon}
+                      className="faq-section__channel-icon"
+                      aria-hidden="true"
+                    />
+                    <span>{channel.label}</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

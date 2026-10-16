@@ -6,4 +6,6 @@ export const heroContent: HeroContent = {
   subtitleBold: "Nosotras la contamos",
   videoMobile: "/Videos/mobile.webm",
   videoDesktop: "/Videos/desktop.webm",
+  posterMobile: "/Videos/mobile-poster.webp",
+  posterDesktop: "/Videos/desktop-poster.webp",
 };
