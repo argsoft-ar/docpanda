@@ -1,7 +1,7 @@
 import React from "react";
 import type { LucideIconName, NavLink } from "../../data";
+import BRAND_IMAGE from "../../assets/images/logo_white.webp";
 import "./Footer.css";
-import brand from "../../../public/Logos panda/logo_white.png";
 
 export interface FooterSocial {
   icon: LucideIconName;
@@ -97,9 +97,12 @@ export const Footer = ({
         <div className="footer__brand">
           <img
             className="footer__brand__image"
-            src={brand}
+            src={BRAND_IMAGE}
+            width={400}
+            height={400}
             alt={logoText}
             loading="lazy"
+            decoding="async"
           />
           {socials && socials.length > 0 && (
             <ul className="footer__socials">

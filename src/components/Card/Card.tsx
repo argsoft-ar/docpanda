@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
+import {
+  getCloudinaryImageSrcSet,
+  getCloudinaryImageUrl,
+} from "../../lib/cloudinary";
 import "./Card.css";
+
+const IMAGE_WIDTHS = [400, 640, 960] as const;
+const IMAGE_SIZES = "(min-width: 1024px) 33vw, 100vw";
 
 export interface CardProps {
   image?: string;
@@ -35,6 +42,13 @@ export const Card = ({
   const showProfileFallback = variant === "profile" && (!image || imageFailed);
   const hasMedia = Boolean(videoUrl || image || showProfileFallback);
   const initial = title?.trim().charAt(0).toUpperCase() ?? "";
+  const imageSrc = image
+    ? getCloudinaryImageUrl(image, { width: 960 })
+    : undefined;
+  const imageSrcSet = image
+    ? getCloudinaryImageSrcSet(image, IMAGE_WIDTHS)
+    : undefined;
+  const imageSizes = imageSrcSet ? IMAGE_SIZES : undefined;
 
   const mediaClassName = ["card__media", aspect ? `card__media--${aspect}` : ""]
     .filter(Boolean)
@@ -49,8 +63,9 @@ export const Card = ({
               <video
                 className="card__video"
                 src={videoUrl}
-                poster={image}
+                poster={imageSrc}
                 controls
+                preload="metadata"
                 autoPlay={isPlaying}
                 playsInline
                 aria-label={title ? `Video de ${title}` : "Video"}
@@ -64,9 +79,12 @@ export const Card = ({
               >
                 <img
                   className="card__image"
-                  src={image}
+                  src={imageSrc}
+                  srcSet={imageSrcSet}
+                  sizes={imageSizes}
                   alt={imageAlt}
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="card__play-overlay" aria-hidden="true">
                   <Play className="card__play-icon" />
@@ -80,9 +98,12 @@ export const Card = ({
           ) : (
             <img
               className="card__image"
-              src={image}
+              src={imageSrc}
+              srcSet={imageSrcSet}
+              sizes={imageSizes}
               alt={imageAlt}
               loading="lazy"
+              decoding="async"
               onError={
                 variant === "profile" ? () => setImageFailed(true) : undefined
               }

@@ -1,6 +1,5 @@
-import type { LucideIcon } from "lucide-react";
-import { icons } from "lucide-react";
 import type { LucideIconName } from "../../data";
+import { Icon } from "../Icon";
 import "./Tabs.css";
 
 export interface TabItem {
@@ -16,11 +15,7 @@ export interface TabsProps {
   icon?: LucideIconName;
 }
 
-const iconMap = icons as Record<string, LucideIcon | undefined>;
-
 export const Tabs = ({ tabs, activeTabId, onTabChange, icon }: TabsProps) => {
-  const IconComponent = icon ? iconMap[icon] : undefined;
-
   return (
     <div className="tabs" role="tablist">
       {tabs.map((tab) => {
@@ -37,8 +32,8 @@ export const Tabs = ({ tabs, activeTabId, onTabChange, icon }: TabsProps) => {
             tabIndex={isActive ? 0 : -1}
             onClick={() => onTabChange(tab.id)}
           >
-            {IconComponent && (
-              <IconComponent className="tabs__icon" aria-hidden="true" />
+            {icon && (
+              <Icon name={icon} className="tabs__icon" aria-hidden="true" />
             )}
             <span className="tabs__label">{tab.label}</span>
           </button>

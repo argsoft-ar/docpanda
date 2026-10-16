@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { MessageCircle } from "lucide-react";
 import { Button, Doodle, Form } from "../../../../components";
 import type { FormStatus } from "../../../../components";
 import { contactInfo } from "../../../../data";
 import { useInView, useGTM } from "../../../../hooks";
-import pandaImagen from "../../../../../public/Panda/panda_wpp.png";
+
+import PANDA_IMAGE from "../../../../assets/images/panda_wpp.webp";
 
 import "./Contact.css";
 
@@ -36,6 +36,7 @@ export const Contact = () => {
     setStatusMessage("");
 
     try {
+      const { default: emailjs } = await import("@emailjs/browser");
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -78,7 +79,6 @@ export const Contact = () => {
     }
   };
 
-
   return (
     <section
       className={`contact reveal${isInView ? " reveal--visible" : ""}`}
@@ -114,10 +114,13 @@ export const Contact = () => {
             {pandaVisible && (
               <img
                 className="contact__panda"
-                src={pandaImagen}
+                src={PANDA_IMAGE}
+                width={600}
+                height={547}
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
+                decoding="async"
                 onError={() => setPandaVisible(false)}
               />
             )}

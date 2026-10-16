@@ -1,10 +1,11 @@
+import pandaAboutImage from "../assets/images/panda_about.webp";
 import type { SiteContent } from "./types";
 
 export const siteContent: SiteContent = {
   logoText: "Doc Panda Producciones",
   navCtaLabel: "¡Hablemos!",
   navCtaHref: "#contact",
-  pandaImage: "/Panda/panda-mask.png",
+  pandaImage: pandaAboutImage,
   footerDescription:
     "Estudio de foto y video producto\nBuenos Aires, Argentina",
   socials: [

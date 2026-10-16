@@ -1,8 +1,16 @@
-import { useRef, useState } from "react";
-import { MediaTile, VideoLightbox, Tabs } from "../../../../components";
+import { lazy, Suspense, useRef, useState } from "react";
+import { MediaTile, Tabs } from "../../../../components";
 import { sectionHeadings, videoCategories } from "../../../../data";
 import { useInView, useGTM } from "../../../../hooks";
 import "./ProductVideo.css";
+
+const VideoLightbox = lazy(() =>
+  import("../../../../components/VideoLightbox").then((m) => ({
+    default: m.VideoLightbox,
+  })),
+);
+
+const TILE_SIZES = "(min-width: 1024px) 20rem, (min-width: 640px) 16rem, 20rem";
 
 export const ProductVideo = () => {
   const heading = sectionHeadings.video;
@@ -39,7 +47,6 @@ export const ProductVideo = () => {
       });
     }
   };
-
 
   return (
     <section
@@ -89,6 +96,7 @@ export const ProductVideo = () => {
                   aspect="portrait"
                   publicId={item.cloudinaryId}
                   title={item.title}
+                  sizes={TILE_SIZES}
                   ariaLabel={
                     item.title ? `Reproducir ${item.title}` : "Reproducir video"
                   }
@@ -100,11 +108,13 @@ export const ProductVideo = () => {
         )}
 
         {lightboxIndex !== null && activeCategory && (
-          <VideoLightbox
-            items={activeCategory.items}
-            initialIndex={lightboxIndex}
-            onClose={() => setLightboxIndex(null)}
-          />
+          <Suspense fallback={null}>
+            <VideoLightbox
+              items={activeCategory.items}
+              initialIndex={lightboxIndex}
+              onClose={() => setLightboxIndex(null)}
+            />
+          </Suspense>
         )}
       </div>
     </section>
