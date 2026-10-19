@@ -124,10 +124,12 @@
 
   /* Panda: fixed width, height stretches to match text block */
   .about-us__panda {
-    width: clamp(16rem, 22vw, 26rem);
+    width: 350px;
     height: auto;
     border-radius: var(--radius-lg);
     align-self: auto;
+    background-size: cover;
+    background-position: center;
   }
 }
 
