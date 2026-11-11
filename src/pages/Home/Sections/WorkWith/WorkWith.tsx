@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Star } from "lucide-react";
-import { Card, Doodle } from "../../../../components";
+import { Card, CountUp, Doodle, DrawnUnderline } from "../../../../components";
+import pandaTrabajamos from "../../../../assets/doodles/Panda_trabajamos.svg";
 import type { Brand } from "../../../../data";
 import {
   brands,
@@ -36,6 +37,8 @@ export const WorkWith = () => {
   const accentClass = `heading-accent--${heading.accent ?? "primary"}`;
   const introRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(introRef);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const isStatsInView = useInView(statsRef, { threshold: 0.3 });
 
   return (
     <section className="work-with" id="brands">
@@ -62,8 +65,10 @@ export const WorkWith = () => {
       >
         <div className="work-with__panel">
           <h2 className="work-with__title">
-            {heading.titlePart1 && `${heading.titlePart1} `}
-            <span className={accentClass}>{heading.titlePart2}</span>
+            <DrawnUnderline>
+              {heading.titlePart1 && `${heading.titlePart1} `}
+              <span className={accentClass}>{heading.titlePart2}</span>
+            </DrawnUnderline>
           </h2>
 
           <ul className="work-with__brands">
@@ -75,11 +80,22 @@ export const WorkWith = () => {
           </ul>
         </div>
 
-        <div className="work-with__stats">
-          <Doodle name="stars" className="work-with__stats-doodle" />
+        <div className="work-with__stats" ref={statsRef}>
+          <img
+            className={`work-with__panda reveal reveal-delay-2${isStatsInView ? " reveal--visible" : ""}`}
+            src={pandaTrabajamos}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
           {stats.map((stat) => (
             <div className="work-with__stat" key={stat.id}>
-              <Card variant="stat" title={stat.value} subtitle={stat.label} />
+              <Card
+                variant="stat"
+                title={stat.value}
+                titleContent={<CountUp value={stat.value} />}
+                subtitle={stat.label}
+              />
             </div>
           ))}
           <Doodle

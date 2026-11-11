@@ -1,0 +1,21 @@
+.count-up {
+  position: relative;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-up--counting .count-up__text {
+  color: transparent;
+}
+
+.count-up--counting::after {
+  content: attr(data-display);
+  content: attr(data-display) / "";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  white-space: nowrap;
+}

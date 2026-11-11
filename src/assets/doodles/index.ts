@@ -12,6 +12,8 @@ import speechBubble from "./speech-bubble.svg?raw";
 import stars from "./stars.svg?raw";
 import paperPlane from "./paper-plane.svg?raw";
 import heart from "./heart.svg?raw";
+// Filled paths (no stroke): color it with `svg { fill: currentColor }`.
+import exclamation from "./Exclamacion_2.svg?raw";
 
 export type DoodleName =
   | "sparkle"
@@ -19,7 +21,8 @@ export type DoodleName =
   | "speech-bubble"
   | "stars"
   | "paper-plane"
-  | "heart";
+  | "heart"
+  | "exclamation";
 
 export const doodleRegistry: Record<DoodleName, string> = {
   sparkle,
@@ -28,4 +31,5 @@ export const doodleRegistry: Record<DoodleName, string> = {
   stars,
   "paper-plane": paperPlane,
   heart,
+  exclamation,
 };

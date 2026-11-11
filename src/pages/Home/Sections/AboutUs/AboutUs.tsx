@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { MemberBioCard, Tabs } from "../../../../components";
+import { DrawnUnderline, MemberBioCard, Tabs } from "../../../../components";
 import { aboutContent } from "../../../../data";
 import { useInView } from "../../../../hooks/useInView";
 import "./AboutUs.css";
@@ -73,10 +73,10 @@ export const AboutUs = () => {
         <div className="about-us__header">
           <div className="about-us__text">
             <h2 className="about-us__title">
-              <span className="underline-stroke">
+              <DrawnUnderline>
                 {heading.titlePart1} <br />
                 <span className={accentClass}>{heading.titlePart2}</span>
-              </span>
+              </DrawnUnderline>
             </h2>
             <p className="about-us__description">
               {aboutContent.description}{" "}
