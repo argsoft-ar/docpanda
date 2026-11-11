@@ -1,0 +1,43 @@
+.drawn-underline {
+  --drawn-underline-color: var(--color-text);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.3em;
+}
+
+.drawn-underline--primary {
+  --drawn-underline-color: var(--color-primary);
+}
+
+.drawn-underline--secondary {
+  --drawn-underline-color: var(--color-secondary);
+}
+
+.drawn-underline__stroke {
+  position: absolute;
+  left: -3%;
+  right: -2%;
+  bottom: -0.02em;
+  height: 0.32em;
+  background-color: var(--drawn-underline-color);
+  -webkit-mask: url("../../assets/doodles/Raya_1.svg") center / 100% 100%
+    no-repeat;
+  mask: url("../../assets/doodles/Raya_1.svg") center / 100% 100% no-repeat;
+  /* Slight hand-drawn tilt and lean. */
+  transform: rotate(-1.4deg) skewX(-10deg);
+  transform-origin: left center;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--transition-draw) 150ms;
+  pointer-events: none;
+}
+
+.drawn-underline--drawn .drawn-underline__stroke {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawn-underline__stroke {
+    clip-path: inset(0 0 0 0);
+    transition: none;
+  }
+}

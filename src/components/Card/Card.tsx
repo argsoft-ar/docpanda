@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ReactNode } from "react";
 import { Play } from "lucide-react";
 import {
   getCloudinaryImageSrcSet,
@@ -14,6 +15,8 @@ export interface CardProps {
   imageAlt?: string;
   videoUrl?: string;
   title?: string;
+  /** Overrides how `title` is rendered (e.g. an animated counter). */
+  titleContent?: ReactNode;
   subtitle?: string;
   description?: string;
   badge?: string;
@@ -29,6 +32,7 @@ export const Card = ({
   imageAlt = "",
   videoUrl,
   title,
+  titleContent,
   subtitle,
   description,
   badge,
@@ -49,6 +53,7 @@ export const Card = ({
     ? getCloudinaryImageSrcSet(image, IMAGE_WIDTHS)
     : undefined;
   const imageSizes = imageSrcSet ? IMAGE_SIZES : undefined;
+  const titleNode = titleContent ?? title;
 
   const mediaClassName = ["card__media", aspect ? `card__media--${aspect}` : ""]
     .filter(Boolean)
@@ -129,11 +134,11 @@ export const Card = ({
                   alt=""
                   loading="lazy"
                 />
-                {title}
+                {titleNode}
               </h3>
             ) : variant === "stat" ? (
               <h3 className="card__title card__title--stat-brush">
-                {title}
+                {titleNode}
                 <img
                   src="/Elementos graficos/brush verde.svg"
                   className="card__title-brush-under"
@@ -142,7 +147,7 @@ export const Card = ({
                 />
               </h3>
             ) : (
-              <h3 className="card__title">{title}</h3>
+              <h3 className="card__title">{titleNode}</h3>
             ))}
           {subtitle && <p className="card__subtitle">{subtitle}</p>}
           {description && <p className="card__description">{description}</p>}

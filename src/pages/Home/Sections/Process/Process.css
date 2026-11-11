@@ -1,4 +1,6 @@
 .process {
+  position: relative;
+  z-index: 1;
   background-color: var(--color-surface-lavender);
   padding: var(--space-section) 0;
 }
@@ -18,18 +20,33 @@
   color: var(--color-primary);
 }
 
-.process__doodle--left {
-  top: 0;
-  left: var(--container-padding);
-  width: clamp(3rem, 5vw, 5rem);
-  transform: scaleX(-1) rotate(20deg);
-}
-
 .process__doodle--right {
   top: -1rem;
   right: var(--container-padding);
   width: clamp(3rem, 5vw, 5rem);
   color: var(--color-secondary);
+}
+
+/* ---------- Panda (cruza el límite con ProductVideo) ---------- */
+
+/* Centered on the boundary; shifted down only as needed so the visible figure (~0.32 × width above center) stays inside ProductVideo's bottom padding. */
+.process__panda {
+  --process-panda-width: clamp(22rem, 32vw, 30rem);
+  --process-panda-shift: max(
+    0px,
+    0.32 * var(--process-panda-width) - var(--space-section)
+  );
+  display: none;
+  position: absolute;
+  top: calc(var(--process-panda-shift) - var(--space-section));
+  /* PNG has ~19.5% transparent margin on the left; align the visible figure with the container edge. */
+  left: calc(var(--container-padding) - 0.195 * var(--process-panda-width));
+  z-index: 1;
+  width: var(--process-panda-width);
+  height: auto;
+  translate: 0 -50%;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* ---------- Header ---------- */
@@ -44,6 +61,23 @@
 
 .process__title {
   text-transform: uppercase;
+}
+
+.process__title-initial {
+  position: relative;
+}
+
+.process__exclaim {
+  position: absolute;
+  top: -0.55em;
+  left: -0.7em;
+  width: 0.75em;
+  color: var(--color-primary);
+  transform-origin: bottom right;
+}
+
+.process__exclaim svg {
+  fill: currentColor;
 }
 
 .process__subtitle {
@@ -63,6 +97,7 @@
 }
 
 .process__step {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,6 +130,23 @@
   max-width: 32ch;
 }
 
+/* Centered in the column gap to the right of each step (desktop only). */
+.process__step-doodle {
+  display: none;
+  position: absolute;
+  top: 0.5rem;
+  right: calc(var(--space-2xl) / -2);
+  width: clamp(2rem, 2.6vw, 2.75rem);
+  translate: 50% 0;
+  color: var(--color-primary);
+  transform: rotate(-8deg);
+}
+
+.process__step:nth-child(even) .process__step-doodle {
+  color: var(--color-secondary);
+  transform: rotate(10deg);
+}
+
 @media (min-width: 640px) {
   .process__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -108,6 +160,14 @@
   }
 
   .process__doodle {
+    display: inline-flex;
+  }
+
+  .process__panda {
+    display: block;
+  }
+
+  .process__step-doodle {
     display: inline-flex;
   }
 }

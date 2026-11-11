@@ -138,6 +138,10 @@
   color: var(--color-secondary);
 }
 
+.work-with__panda {
+  display: none;
+}
+
 /* ---------- Reviews ---------- */
 
 .work-with__reviews-panel {
@@ -234,7 +238,30 @@
   }
 
   .work-with__stats {
+    --work-with-panda-width: clamp(10rem, 14vw, 15rem);
+    --work-with-panda-tuck: 1.5rem;
     grid-template-columns: repeat(4, 1fr);
+    padding-left: calc(var(--work-with-panda-width) + var(--space-sm));
+  }
+
+  /* Emerges from behind the reviews panel; its head overlaps the brands panel above. */
+  .work-with__panda {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: calc(-1 * (var(--space-2xl) + var(--work-with-panda-tuck)));
+    z-index: 1;
+    width: var(--work-with-panda-width);
+    height: auto;
+    aspect-ratio: 780.75 / 942;
+    object-fit: contain;
+    object-position: bottom center;
+    pointer-events: none;
+  }
+
+  .work-with__reviews-panel {
+    position: relative;
+    z-index: 2;
   }
 
   .work-with__stat + .work-with__stat {
