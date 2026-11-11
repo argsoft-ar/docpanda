@@ -25,6 +25,44 @@
   transition-delay: 300ms;
 }
 
+.reveal-delay-4 {
+  transition-delay: 400ms;
+}
+
+.reveal-delay-6 {
+  transition-delay: 600ms;
+}
+
+.reveal-delay-8 {
+  transition-delay: 800ms;
+}
+
+/* Uses individual transform properties so it composes with component transforms. */
+.pop-in {
+  opacity: 0;
+  scale: 0.3;
+  rotate: -25deg;
+  transition:
+    opacity var(--transition-pop),
+    scale var(--transition-pop-spring),
+    rotate var(--transition-pop-spring);
+}
+
+.pop-in--visible {
+  opacity: 1;
+  scale: 1;
+  rotate: 0deg;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity var(--transition-reveal);
+}
+
+.fade-in--visible {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -38,6 +76,14 @@
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .pop-in,
+  .fade-in {
+    opacity: 1;
+    scale: 1;
+    rotate: 0deg;
     transition: none;
   }
 }
