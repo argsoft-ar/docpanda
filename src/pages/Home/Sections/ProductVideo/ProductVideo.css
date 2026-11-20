@@ -84,4 +84,17 @@
   left: 0;
   width: 100%;
   z-index: -1;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--transition-draw) 300ms;
+}
+
+.product-video.reveal--visible .product-video__title-brush {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-video__title-brush {
+    clip-path: inset(0 0 0 0);
+    transition: none;
+  }
 }
