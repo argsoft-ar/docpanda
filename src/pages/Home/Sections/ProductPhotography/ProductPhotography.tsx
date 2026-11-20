@@ -127,7 +127,6 @@ export const ProductPhotography = () => {
                 src="/Elementos graficos/brush verde.svg"
                 className="product-photography__title-brush"
                 alt=""
-                loading="lazy"
               />
             </span>
           </h2>

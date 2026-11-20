@@ -38,6 +38,12 @@
   left: 0;
   width: 100%;
   z-index: -1;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--transition-draw) 300ms;
+}
+
+.product-photography.reveal--visible .product-photography__title-brush {
+  clip-path: inset(0 0 0 0);
 }
 
 /* ============================================
@@ -150,5 +156,10 @@
     clip-path: none;
     opacity: 1;
     animation: none !important;
+  }
+
+  .product-photography__title-brush {
+    clip-path: inset(0 0 0 0);
+    transition: none;
   }
 }
